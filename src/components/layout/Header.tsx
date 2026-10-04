@@ -61,13 +61,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
       {/* Top Institutional & Regulatory Disclaimer Ribbon */}
       <div className="bg-[#030814] text-slate-300 text-xs py-2 px-4 border-b border-white/10">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
-          <div className="flex items-center gap-2.5">
-            <span className="relative flex h-2 w-2">
+          <div className="flex items-center gap-2.5 min-w-0">
+            <span className="relative flex h-2 w-2 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span className="text-slate-300 font-medium tracking-wide">{t.common.disclaimerRibbon}</span>
-            <span className="hidden md:inline text-slate-600">|</span>
+            <span className="text-slate-300 font-medium tracking-wide truncate">{t.common.disclaimerRibbon}</span>
+            <span className="hidden md:inline text-slate-600 shrink-0">|</span>
             <a 
               href="https://licindia.in" 
               target="_blank" 
@@ -102,98 +102,85 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
       </div>
 
       {/* Main Navigation Header with Luxury Glassmorphism */}
-      <header className="sticky top-0 z-40 bg-[#060e1d]/90 backdrop-blur-xl border-b border-white/10 shadow-glass-dark transition-all">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+      <header className="sticky top-0 z-40 bg-[#060e1d]/95 backdrop-blur-xl border-b border-white/10 shadow-glass-dark transition-all">
+        <div className="w-full max-w-[1480px] mx-auto px-3 sm:px-6">
+          <div className="flex justify-between items-center h-16 sm:h-20">
             {/* Brand Logo & Officer Details */}
             <Link 
               href="/" 
-              className="flex items-center gap-3.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 rounded-xl p-1"
+              className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 rounded-xl p-0.5 sm:p-1 shrink-0"
             >
               <div className="relative">
                 <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-gold-500 to-amber-300 opacity-30 blur group-hover:opacity-75 transition duration-300" />
-                <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-lic-900 via-lic-950 to-[#030712] border border-gold-500/40 text-gold-400 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-                  <ShieldCheck className="w-7 h-7 text-gold-400" />
+                <div className="relative w-11 h-11 rounded-xl bg-gradient-to-br from-lic-900 via-lic-950 to-[#030712] border border-gold-500/40 text-gold-400 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+                  <ShieldCheck className="w-6 h-6 text-gold-400" />
                 </div>
               </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-white leading-none group-hover:text-gold-300 transition-colors">
+              <div className="flex flex-col min-w-0">
+                <span className="font-serif text-lg sm:text-2xl font-bold tracking-tight text-white leading-none group-hover:text-gold-300 transition-colors whitespace-nowrap">
                   Kartik Barmera
                 </span>
-                <span className="text-xs font-semibold text-gold-400/90 tracking-wide mt-1.5 flex items-center gap-1.5">
-                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                  Development Officer, LIC of India
+                <span className="text-[11px] sm:text-xs font-semibold text-gold-400/90 tracking-wide mt-1.5 flex items-center gap-1.5 whitespace-nowrap">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+                  <span>Development Officer<span className="hidden sm:inline">, LIC of India</span></span>
                 </span>
               </div>
             </Link>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden xl:flex items-center gap-6 text-xs lg:text-[13px] font-semibold text-slate-200">
-              <Link href="/" className="hover:text-gold-300 transition-colors py-1.5 relative group">
-                {t.nav.home}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <Link href="/why-life-insurance" className="hover:text-gold-300 transition-colors py-1.5 relative group">
+            <nav className="hidden xl:flex items-center gap-2.5 2xl:gap-4 text-xs lg:text-[13px] font-semibold text-slate-200">
+              <Link href="/why-life-insurance" className="hover:text-gold-300 transition-colors py-1.5 relative group whitespace-nowrap">
                 {t.nav.whyInsurance}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <Link href="/solutions" className="hover:text-gold-300 transition-colors py-1.5 relative group">
+              <Link href="/solutions" className="hover:text-gold-300 transition-colors py-1.5 relative group whitespace-nowrap">
                 {t.nav.solutions}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <Link href="/compare" className="text-gold-300 hover:text-gold-200 transition-colors py-1.5 flex items-center gap-1 relative group">
+              <Link href="/compare" className="text-gold-300 hover:text-gold-200 transition-colors py-1.5 flex items-center gap-1 relative group whitespace-nowrap">
                 <Scale className="w-3.5 h-3.5 text-gold-400" />
                 <span>{t.nav.compare}</span>
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gold-400"></span>
               </Link>
-              <Link href="/riders" className="hover:text-gold-300 transition-colors py-1.5 relative group">
+              <Link href="/riders" className="hover:text-gold-300 transition-colors py-1.5 relative group whitespace-nowrap">
                 {t.nav.riders}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <Link href="/insurance-calculator" className="hover:text-gold-300 transition-colors py-1.5 relative group">
+              <Link href="/insurance-calculator" className="hover:text-gold-300 transition-colors py-1.5 relative group whitespace-nowrap">
                 {t.nav.calculator}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <Link href="/claims-guide" className="text-emerald-300 hover:text-emerald-200 transition-colors py-1.5 flex items-center gap-1 relative group">
+              <Link href="/claims-guide" className="text-emerald-300 hover:text-emerald-200 transition-colors py-1.5 flex items-center gap-1 relative group whitespace-nowrap">
                 <HeartHandshake className="w-3.5 h-3.5 text-emerald-400" />
                 <span>{t.nav.claimsGuide}</span>
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-400 transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <Link href="/resources" className="hover:text-gold-300 transition-colors py-1.5 relative group">
+              <Link href="/resources" className="hover:text-gold-300 transition-colors py-1.5 relative group whitespace-nowrap">
                 {t.nav.resources}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <Link href="/about" className="hover:text-gold-300 transition-colors py-1.5 relative group">
+              <Link href="/about" className="hover:text-gold-300 transition-colors py-1.5 relative group whitespace-nowrap">
                 {t.nav.about}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <Link href="/faq" className="hover:text-gold-300 transition-colors py-1.5 relative group">
+              <Link href="/faq" className="hover:text-gold-300 transition-colors py-1.5 relative group whitespace-nowrap">
                 {t.nav.faq}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <Link href="/contact" className="hover:text-gold-300 transition-colors py-1.5 relative group">
+              <Link href="/contact" className="hover:text-gold-300 transition-colors py-1.5 relative group whitespace-nowrap">
                 {t.nav.contact}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
               </Link>
             </nav>
 
             {/* Desktop Action CTAs */}
-            <div className="hidden lg:flex items-center gap-3">
-              <button
-                type="button"
-                onClick={toggleLanguage}
-                className="xl:hidden inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-white/15 text-xs font-bold text-slate-200 hover:bg-white/10 transition-colors"
-              >
-                <Languages className="w-3.5 h-3.5 text-gold-400" />
-                <span>{language === "en" ? "हिन्दी" : "EN"}</span>
-              </button>
-
+            <div className="hidden lg:flex items-center gap-2.5 shrink-0">
               <a
                 href={buildWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleWhatsAppClick}
-                className="inline-flex items-center gap-2 px-3.5 py-2.5 text-xs font-bold text-emerald-300 bg-emerald-950/60 hover:bg-emerald-900/70 border border-emerald-500/40 rounded-xl backdrop-blur-md transition-all shadow-sm hover:shadow"
+                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-emerald-300 bg-emerald-950/60 hover:bg-emerald-900/70 border border-emerald-500/40 rounded-xl backdrop-blur-md transition-all shadow-sm hover:shadow whitespace-nowrap"
                 title="Direct WhatsApp with Kartik Barmera"
               >
                 <span className="relative flex h-2 w-2">
@@ -206,39 +193,31 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
               <button
                 type="button"
                 onClick={handleConsultationClick}
-                className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-extrabold uppercase tracking-wider text-slate-950 bg-gradient-to-r from-gold-400 via-gold-300 to-gold-500 hover:from-gold-300 hover:to-gold-400 rounded-xl shadow-gold-glow hover:shadow-gold-glow-lg transition-all transform hover:-translate-y-0.5"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-extrabold uppercase tracking-wider text-slate-950 bg-gradient-to-r from-gold-400 via-gold-300 to-gold-500 hover:from-gold-300 hover:to-gold-400 rounded-xl shadow-gold-glow hover:shadow-gold-glow-lg transition-all transform hover:-translate-y-0.5 whitespace-nowrap"
               >
-                <span>{t.nav.consultationCTA}</span>
-                <ChevronRight className="w-4 h-4 text-slate-950" />
+                <span>{language === "hi" ? "सलाह बुक करें" : "Book Advisory"}</span>
+                <ChevronRight className="w-3.5 h-3.5 text-slate-950" />
               </button>
             </div>
 
-            {/* Mobile Hamburger Button */}
+            {/* Mobile Actions: Phone & Clean Hamburger */}
             <div className="flex xl:hidden items-center gap-2">
-              <button
-                type="button"
-                onClick={toggleLanguage}
-                className="p-2 text-xs font-bold rounded-lg border border-white/20 text-gold-300 bg-white/5"
-                aria-label="Toggle language"
-              >
-                {language === "en" ? "हिन्दी" : "EN"}
-              </button>
               <a
                 href={`tel:+91${advisorData.phone}`}
                 onClick={handlePhoneClick}
-                className="p-2.5 text-gold-400 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors"
+                className="p-2 text-gold-400 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors flex items-center justify-center"
                 aria-label="Direct Phone Call"
               >
-                <Phone className="w-5 h-5" />
+                <Phone className="w-4.5 h-4.5" />
               </a>
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2.5 text-slate-200 hover:text-white bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold-400"
+                className="p-2 text-slate-200 hover:text-white bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold-400 flex items-center justify-center"
                 aria-expanded={mobileMenuOpen}
                 aria-label="Toggle Navigation Menu"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
           </div>

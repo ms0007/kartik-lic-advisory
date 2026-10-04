@@ -68,8 +68,8 @@ export const SolutionsExplorer: React.FC<SolutionsExplorerProps> = ({
               }}
               className={`px-5 py-2.5 rounded-2xl text-xs font-extrabold transition-all duration-200 shadow-sm ${
                 activeCategory === cat.id
-                  ? "bg-lic-900 text-gold-300 ring-2 ring-gold-500/50 shadow-md"
-                  : "bg-slate-100 text-slate-700 hover:bg-slate-200/80 hover:text-slate-900"
+                  ? "bg-[#060e1d] text-gold-300 border border-gold-400/60 ring-2 ring-gold-400/20 shadow-gold-glow"
+                  : "bg-white text-slate-700 hover:text-lic-950 hover:border-gold-400/60 border border-slate-200/90 hover:bg-slate-50"
               }`}
             >
               {cat.label}

@@ -33,17 +33,18 @@ export default function WhyLifeInsurancePage() {
 
       <main className="flex-grow">
         {/* Breadcrumb Bar */}
-        <div className="bg-slate-100/70 border-b border-slate-200 py-2 px-4 text-xs text-slate-500">
+        <div className="bg-[#060e1d] border-b border-white/10 py-2.5 px-4 text-xs text-slate-400">
           <div className="max-w-7xl mx-auto flex items-center gap-1.5">
-            <Link href="/" className="hover:text-blue-900">Home</Link>
+            <Link href="/" className="hover:text-gold-300 text-slate-400">Home</Link>
             <ChevronRight className="w-3 h-3 text-slate-400" />
-            <span className="font-semibold text-slate-800">Why Life Insurance</span>
+            <span className="font-semibold text-gold-300">Why Life Insurance</span>
           </div>
         </div>
 
         {/* Hero Banner */}
-        <section className="bg-gradient-to-b from-blue-950 to-blue-900 text-white py-16 px-4">
-          <div className="max-w-4xl mx-auto text-center space-y-4">
+        <section className="relative text-white py-20 px-4 overflow-hidden" style={{background: 'linear-gradient(135deg, #030816 0%, #071329 60%, #0b1f4a 100%)'}}>
+          <div className="absolute inset-0" style={{backgroundImage: 'radial-gradient(ellipse at 30% 50%, rgba(26,58,122,0.25) 0%, transparent 60%), radial-gradient(ellipse at 75% 25%, rgba(212,175,55,0.08) 0%, transparent 55%)'}} />
+          <div className="relative max-w-4xl mx-auto text-center space-y-4">
             <span className="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-400/20 text-amber-300 border border-amber-400/30">
               Foundational Financial Education
             </span>
