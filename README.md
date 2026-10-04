@@ -3,6 +3,11 @@
 
 An institutional-grade, responsive, and high-converting advisory portal engineered for **Kartik Barmera**, Development Officer, Life Insurance Corporation of India (LIC of India). Built with Next.js App Router, TypeScript, Tailwind CSS, and full Schema.org structured data.
 
+- **🌐 Live Production URL:** [https://kartik-lic-advisory.vercel.app](https://kartik-lic-advisory.vercel.app)
+- **📦 GitHub Repository:** [https://github.com/ms0007/kartik-lic-advisory](https://github.com/ms0007/kartik-lic-advisory)
+- **⚡ Vercel Deployment:** Linked with automated CI/CD upon push to `main`
+
+
 ---
 
 ## 1. Project Overview & Institutional Positioning
