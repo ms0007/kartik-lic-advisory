@@ -4,10 +4,10 @@ const fs = require('fs');
 
 const edgePath = `"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"`;
 const profileDir = path.join(__dirname, '.edge_profile');
-const target = path.join(__dirname, '..', 'screenshots', 'desktop-home-full-bottom-to-footer.png');
+const target = path.join(__dirname, '..', 'screenshots', 'vercel-home-full-bottom.png');
 
-// Capture full bottom of localhost:3000
-const cmd = `${edgePath} --headless --disable-gpu --no-sandbox --user-data-dir="${profileDir}" --no-first-run --no-default-browser-check --screenshot="${target}" --window-size=1366,22000 "http://localhost:3000"`;
+// Capture full bottom of live Vercel
+const cmd = `${edgePath} --headless --disable-gpu --no-sandbox --user-data-dir="${profileDir}" --no-first-run --no-default-browser-check --screenshot="${target}" --window-size=1366,22000 "https://kartik-lic-advisory.vercel.app"`;
 
 console.log('Capturing home bottom...');
 try {

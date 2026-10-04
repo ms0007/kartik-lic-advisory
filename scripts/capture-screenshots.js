@@ -10,8 +10,7 @@ if (!fs.existsSync(outDir)) {
 }
 
 const shots = [
-  { name: 'desktop-consultation-section.png', size: '1366,1200', url: 'http://localhost:3000/#consultation' },
-  { name: 'desktop-contact-page.png', size: '1366,1200', url: 'http://localhost:3000/contact' }
+  { name: 'vercel-contact-page.png', size: '1366,1200', url: 'https://kartik-lic-advisory.vercel.app/contact' }
 ];
 
 const profileDir = path.join(__dirname, '.edge_profile');
