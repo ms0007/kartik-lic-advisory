@@ -13,8 +13,8 @@
 # production
 /build
 # edge temp profile
-.edge_profile/
-scripts/.edge_profile/
+.edge_profile*/
+scripts/.edge_profile*/
 
 
 # misc

@@ -64,30 +64,30 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
       </a>
 
       {/* Top Institutional & Regulatory Disclaimer Ribbon */}
-      <div className="bg-[#030814] text-slate-300 text-xs py-2 px-4 border-b border-white/10">
+      <div className="bg-[#030814] text-slate-300 text-xs py-2 px-3 sm:px-4 border-b border-white/10 overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
-          <div className="flex items-center gap-2.5 min-w-0">
+          <div className="flex items-center gap-2 min-w-0 max-w-full overflow-hidden justify-center sm:justify-start">
             <span className="relative flex h-2 w-2 shrink-0">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span className="text-slate-300 font-medium tracking-wide truncate">{t.common.disclaimerRibbon}</span>
+            <span className="text-slate-300 font-medium tracking-wide truncate max-w-[280px] xs:max-w-xs sm:max-w-none">{t.common.disclaimerRibbon}</span>
             <span className="hidden md:inline text-slate-600 shrink-0">|</span>
             <a 
               href="https://licindia.in" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center gap-1 text-gold-300/80 hover:text-gold-200 transition-colors font-medium"
+              className="hidden md:inline-flex items-center gap-1 text-gold-300/80 hover:text-gold-200 transition-colors font-medium shrink-0"
             >
               {t.common.verifyLic} <ExternalLink className="w-3 h-3 text-gold-400" />
             </a>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4 shrink-0">
             {/* Language Switcher Pill */}
             <button
               type="button"
               onClick={toggleLanguage}
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 hover:bg-white/10 text-xs font-bold text-gold-300 border border-gold-500/30 backdrop-blur-md transition-all shadow-sm"
+              className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-white/5 hover:bg-white/10 text-xs font-bold text-gold-300 border border-gold-500/30 backdrop-blur-md transition-all shadow-sm"
               aria-label={`Switch language to ${language === 'en' ? 'Hindi' : 'English'}`}
             >
               <Languages className="w-3.5 h-3.5 text-gold-400" />
@@ -109,25 +109,25 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
       {/* Main Navigation Header with Luxury Glassmorphism */}
       <header className="sticky top-0 z-40 bg-[#060e1d]/95 backdrop-blur-xl border-b border-white/10 shadow-glass-dark transition-all">
         <div className="w-full max-w-[1480px] mx-auto px-3 sm:px-6">
-          <div className="flex justify-between items-center h-16 sm:h-20">
+          <div className="flex justify-between items-center h-16 sm:h-20 gap-2">
             {/* Brand Logo & Officer Details */}
             <Link 
               href="/" 
-              className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 rounded-xl p-0.5 sm:p-1 shrink-0"
+              className="flex items-center gap-2 sm:gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 rounded-xl p-0.5 sm:p-1 min-w-0 flex-1 sm:flex-initial"
             >
-              <div className="relative">
+              <div className="relative shrink-0">
                 <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-gold-500 to-amber-300 opacity-30 blur group-hover:opacity-75 transition duration-300" />
-                <div className="relative w-11 h-11 rounded-xl bg-gradient-to-br from-lic-900 via-lic-950 to-[#030712] border border-gold-500/40 text-gold-400 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-                  <ShieldCheck className="w-6 h-6 text-gold-400" />
+                <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-lic-900 via-lic-950 to-[#030712] border border-gold-500/40 text-gold-400 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+                  <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6 text-gold-400" />
                 </div>
               </div>
-              <div className="flex flex-col min-w-0">
-                <span className="font-serif text-lg sm:text-2xl font-bold tracking-tight text-white leading-none group-hover:text-gold-300 transition-colors whitespace-nowrap">
+              <div className="flex flex-col min-w-0 truncate">
+                <span className="font-serif text-base sm:text-2xl font-bold tracking-tight text-white leading-none group-hover:text-gold-300 transition-colors truncate">
                   Kartik Barmera
                 </span>
-                <span className="text-[11px] sm:text-xs font-semibold text-gold-400/90 tracking-wide mt-1.5 flex items-center gap-1.5 whitespace-nowrap">
+                <span className="text-[10px] sm:text-xs font-semibold text-gold-400/90 tracking-wide mt-1 flex items-center gap-1.5 truncate">
                   <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
-                  <span>Development Officer<span className="hidden sm:inline">, LIC of India</span></span>
+                  <span className="truncate">Development Officer<span className="hidden sm:inline">, LIC of India</span></span>
                 </span>
               </div>
             </Link>
@@ -247,7 +247,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
             </div>
 
             {/* Mobile Actions: Phone & Clean Hamburger */}
-            <div className="flex lg:hidden items-center gap-2">
+            <div className="flex lg:hidden items-center gap-2 shrink-0">
               <a
                 href={`tel:+91${advisorData.phone}`}
                 onClick={handlePhoneClick}

@@ -49,19 +49,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="lg:col-span-7 space-y-7 text-center lg:text-left">
             
             {/* Live Trust & Designation Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/5 border border-gold-500/30 backdrop-blur-xl shadow-sm">
-              <span className="relative flex h-2 w-2">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-gold-500/30 backdrop-blur-xl shadow-sm max-w-full">
+              <span className="relative flex h-2 w-2 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
               </span>
-              <ShieldCheck className="w-4 h-4 text-gold-400" />
-              <span className="text-xs font-bold tracking-wide text-gold-300">
+              <ShieldCheck className="w-4 h-4 text-gold-400 shrink-0" />
+              <span className="text-[11px] sm:text-xs font-bold tracking-wide text-gold-300 truncate">
                 {t.hero.trustPill}
               </span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="font-serif text-3.5xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.12]">
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]">
               {t.hero.titleStart}{" "}
               <span className="block mt-1 sm:inline text-gold-300 drop-shadow-sm">
                 {t.hero.titleHighlight}
@@ -69,7 +69,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </h1>
 
             {/* High-Contrast Supporting Subtitle */}
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+            <p className="text-sm sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
               {t.hero.subtitle}
             </p>
 
