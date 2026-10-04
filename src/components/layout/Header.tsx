@@ -13,10 +13,15 @@ import {
   Menu, 
   X, 
   ChevronRight, 
+  ChevronDown,
   ExternalLink,
   Languages,
   Scale,
-  HeartHandshake
+  HeartHandshake,
+  Layers,
+  BookOpen,
+  HelpCircle,
+  Mail
 } from "lucide-react";
 
 interface HeaderProps {
@@ -128,7 +133,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
             </Link>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden xl:flex items-center gap-2.5 2xl:gap-4 text-xs lg:text-[13px] font-semibold text-slate-200">
+            <nav className="hidden lg:flex items-center gap-4 xl:gap-5 text-xs lg:text-[13px] font-semibold text-slate-200">
               <Link href="/why-life-insurance" className="hover:text-gold-300 transition-colors py-1.5 relative group whitespace-nowrap">
                 {t.nav.whyInsurance}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
@@ -142,10 +147,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
                 <span>{t.nav.compare}</span>
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gold-400"></span>
               </Link>
-              <Link href="/riders" className="hover:text-gold-300 transition-colors py-1.5 relative group whitespace-nowrap">
-                {t.nav.riders}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
-              </Link>
               <Link href="/insurance-calculator" className="hover:text-gold-300 transition-colors py-1.5 relative group whitespace-nowrap">
                 {t.nav.calculator}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
@@ -155,32 +156,77 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
                 <span>{t.nav.claimsGuide}</span>
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-400 transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <Link href="/resources" className="hover:text-gold-300 transition-colors py-1.5 relative group whitespace-nowrap">
-                {t.nav.resources}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
-              </Link>
               <Link href="/about" className="hover:text-gold-300 transition-colors py-1.5 relative group whitespace-nowrap">
                 {t.nav.about}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
               </Link>
-              <Link href="/faq" className="hover:text-gold-300 transition-colors py-1.5 relative group whitespace-nowrap">
-                {t.nav.faq}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <Link href="/contact" className="hover:text-gold-300 transition-colors py-1.5 relative group whitespace-nowrap">
-                {t.nav.contact}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gold-400 transition-all duration-300 group-hover:w-full"></span>
-              </Link>
+
+              {/* Luxury "More" Dropdown Menu */}
+              <div className="relative group py-2">
+                <button
+                  type="button"
+                  className="inline-flex items-center gap-1 text-slate-200 hover:text-gold-300 transition-colors py-1.5 focus:outline-none"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                >
+                  <span>{language === "hi" ? "अन्य सेवाएँ" : "More"}</span>
+                  <ChevronDown className="w-3.5 h-3.5 text-gold-400 group-hover:rotate-180 transition-transform duration-200" />
+                </button>
+                <div className="absolute right-0 top-full pt-1.5 hidden group-hover:block group-focus-within:block z-50 animate-in fade-in-50 duration-150">
+                  <div className="w-60 rounded-2xl bg-[#060e1d]/98 backdrop-blur-2xl border border-white/15 p-2 shadow-2xl space-y-1">
+                    <Link 
+                      href="/riders" 
+                      className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-200 hover:text-gold-300 hover:bg-white/5 transition-colors"
+                    >
+                      <Layers className="w-4 h-4 text-gold-400" />
+                      <div>
+                        <span className="block text-white font-bold">{t.nav.riders}</span>
+                        <span className="block text-[10px] text-slate-400 font-normal">Accidental & Critical illness riders</span>
+                      </div>
+                    </Link>
+                    <Link 
+                      href="/resources" 
+                      className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-200 hover:text-gold-300 hover:bg-white/5 transition-colors"
+                    >
+                      <BookOpen className="w-4 h-4 text-gold-400" />
+                      <div>
+                        <span className="block text-white font-bold">{t.nav.resources}</span>
+                        <span className="block text-[10px] text-slate-400 font-normal">Financial protection guides</span>
+                      </div>
+                    </Link>
+                    <Link 
+                      href="/faq" 
+                      className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-200 hover:text-gold-300 hover:bg-white/5 transition-colors"
+                    >
+                      <HelpCircle className="w-4 h-4 text-gold-400" />
+                      <div>
+                        <span className="block text-white font-bold">{t.nav.faq}</span>
+                        <span className="block text-[10px] text-slate-400 font-normal">Common insurance questions</span>
+                      </div>
+                    </Link>
+                    <Link 
+                      href="/contact" 
+                      className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-200 hover:text-gold-300 hover:bg-white/5 transition-colors"
+                    >
+                      <Mail className="w-4 h-4 text-gold-400" />
+                      <div>
+                        <span className="block text-white font-bold">{t.nav.contact}</span>
+                        <span className="block text-[10px] text-slate-400 font-normal">Direct advisory consultation</span>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </nav>
 
             {/* Desktop Action CTAs */}
-            <div className="hidden lg:flex items-center gap-2.5 shrink-0">
+            <div className="hidden lg:flex items-center gap-3 shrink-0">
               <a
                 href={buildWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleWhatsAppClick}
-                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold text-emerald-300 bg-emerald-950/60 hover:bg-emerald-900/70 border border-emerald-500/40 rounded-xl backdrop-blur-md transition-all shadow-sm hover:shadow whitespace-nowrap"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-emerald-300 bg-emerald-950/60 hover:bg-emerald-900/70 border border-emerald-500/40 rounded-xl backdrop-blur-md transition-all shadow-sm hover:shadow whitespace-nowrap"
                 title="Direct WhatsApp with Kartik Barmera"
               >
                 <span className="relative flex h-2 w-2">
@@ -193,7 +239,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
               <button
                 type="button"
                 onClick={handleConsultationClick}
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-extrabold uppercase tracking-wider text-slate-950 bg-gradient-to-r from-gold-400 via-gold-300 to-gold-500 hover:from-gold-300 hover:to-gold-400 rounded-xl shadow-gold-glow hover:shadow-gold-glow-lg transition-all transform hover:-translate-y-0.5 whitespace-nowrap"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 text-xs font-extrabold uppercase tracking-wider text-slate-950 bg-gradient-to-r from-gold-400 via-gold-300 to-gold-500 hover:from-gold-300 hover:to-gold-400 rounded-xl shadow-gold-glow hover:shadow-gold-glow-lg transition-all transform hover:-translate-y-0.5 whitespace-nowrap"
               >
                 <span>{language === "hi" ? "सलाह बुक करें" : "Book Advisory"}</span>
                 <ChevronRight className="w-3.5 h-3.5 text-slate-950" />
@@ -201,7 +247,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
             </div>
 
             {/* Mobile Actions: Phone & Clean Hamburger */}
-            <div className="flex xl:hidden items-center gap-2">
+            <div className="flex lg:hidden items-center gap-2">
               <a
                 href={`tel:+91${advisorData.phone}`}
                 onClick={handlePhoneClick}
@@ -225,7 +271,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenConsultation }) => {
 
         {/* Mobile Navigation Drawer with Luxury Dark Styling */}
         {mobileMenuOpen && (
-          <div className="xl:hidden border-t border-white/10 bg-[#060e1d]/98 backdrop-blur-2xl px-5 pt-4 pb-8 shadow-2xl animate-in slide-in-from-top duration-200 max-h-[85vh] overflow-y-auto">
+          <div className="lg:hidden border-t border-white/10 bg-[#060e1d]/98 backdrop-blur-2xl px-5 pt-4 pb-8 shadow-2xl animate-in slide-in-from-top duration-200 max-h-[85vh] overflow-y-auto">
             <div className="flex flex-col space-y-2 font-medium text-slate-200 text-base">
               <Link 
                 href="/" 

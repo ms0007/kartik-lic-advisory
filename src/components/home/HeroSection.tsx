@@ -63,7 +63,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Main Headline */}
             <h1 className="font-serif text-3.5xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.12]">
               {t.hero.titleStart}{" "}
-              <span className="block mt-1 sm:inline text-transparent bg-clip-text bg-gradient-to-r from-gold-200 via-amber-100 to-gold-400 drop-shadow-sm">
+              <span className="block mt-1 sm:inline text-gold-300 drop-shadow-sm">
                 {t.hero.titleHighlight}
               </span>
             </h1>

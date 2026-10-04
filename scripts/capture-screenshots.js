@@ -10,8 +10,7 @@ if (!fs.existsSync(outDir)) {
 }
 
 const shots = [
-  { name: 'desktop-hero.png', size: '1440,900', url: 'http://localhost:3000' },
-  { name: 'mobile-hero.png', size: '390,844', url: 'http://localhost:3000' }
+  { name: 'desktop-1366-story.png', size: '1366,2800', url: 'http://localhost:3000' }
 ];
 
 for (const s of shots) {

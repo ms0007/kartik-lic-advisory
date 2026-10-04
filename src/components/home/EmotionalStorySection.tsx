@@ -116,7 +116,7 @@ export const EmotionalStorySection: React.FC = () => {
                 The Core Economic Purpose of Life Insurance
               </span>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-white leading-snug">
-                Life insurance is designed to create an <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-200 to-amber-300">unbreakable financial fortress</span> for your family.
+                Life insurance is designed to create an <span className="text-gold-300 font-extrabold underline decoration-gold-400/40 underline-offset-4">unbreakable financial fortress</span> for your family.
               </h3>
               <p className="text-sm text-slate-300 leading-relaxed font-normal">
                 It does not prevent life's uncertainties, but it guarantees that your spouse, children, and parents will never have to compromise their home, their education, or their dignity because of unpaid debts or missing paychecks.

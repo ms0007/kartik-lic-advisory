@@ -66,7 +66,7 @@ export const ProtectionCalculator: React.FC<ProtectionCalculatorProps> = ({
               <span>Capital Needs & Human Life Value (HLV) Engine</span>
             </div>
             <h2 className="font-serif text-2xl sm:text-4xl font-extrabold tracking-tight leading-snug">
-              Calculate Your Family's <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-200 to-amber-300">Financial Protection Gap</span>
+              Calculate Your Family's <span className="text-gold-300 font-extrabold">Financial Protection Gap</span>
             </h2>
             <p className="text-slate-300 text-xs sm:text-sm mt-2 max-w-2xl font-normal leading-relaxed">
               An institutional estimation tool evaluating how much financial protection capital your dependents would realistically require if your earning capacity ceased today.
@@ -308,7 +308,7 @@ export const ProtectionCalculator: React.FC<ProtectionCalculatorProps> = ({
             {/* Primary Result Headline */}
             <div className="relative z-10">
               <p className="text-xs text-slate-300 font-semibold tracking-wide">Estimated Family Protection Gap</p>
-              <div className="text-3.5xl sm:text-5xl font-serif font-black text-transparent bg-clip-text bg-gradient-to-r from-gold-200 via-amber-100 to-gold-400 mt-1.5 tracking-tight drop-shadow-sm">
+              <div className="text-3.5xl sm:text-5xl font-serif font-black text-gold-300 mt-1.5 tracking-tight drop-shadow-sm">
                 {formatCurrencyINR(result.protectionGap)}
               </div>
               <p className="text-xs text-slate-300 mt-2 leading-relaxed font-normal">
