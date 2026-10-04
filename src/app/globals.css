@@ -10,7 +10,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-start-rgb));
+  background: #ffffff;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -36,4 +36,75 @@ html {
 /* Safe area padding for mobile bottom bar */
 .safe-area-pb {
   padding-bottom: env(safe-area-inset-bottom, 8px);
+}
+
+/* Luxury UI Utilities */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #fae9b5 0%, #e5c158 50%, #c48914 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-gradient {
+  border-image: linear-gradient(to right, rgba(212,175,55,0.4), rgba(250,233,181,0.8), rgba(212,175,55,0.4)) 1;
+}
+
+.ambient-mesh {
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(16, 44, 97, 0.4) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(212, 175, 55, 0.15) 0px, transparent 40%),
+    radial-gradient(at 50% 100%, rgba(11, 32, 70, 0.6) 0px, transparent 60%);
+}
+
+.ambient-card-mesh {
+  background: linear-gradient(145deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.9) 100%);
+}
+
+/* Custom Financial Slider Thumb Styling */
+input[type="range"] {
+  accent-color: #d4af37;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fae9b5 0%, #d4af37 100%);
+  cursor: pointer;
+  border: 3px solid #0b2046;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.9);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fae9b5 0%, #d4af37 100%);
+  cursor: pointer;
+  border: 3px solid #0b2046;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Glassmorphism helpers */
+.glass-panel-dark {
+  background: rgba(11, 32, 70, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
 }

@@ -13,6 +13,7 @@ export type AnalyticsEvent =
   | 'calculator_started'
   | 'calculator_completed'
   | 'policy_resource_viewed'
+  | 'smart_plan_finder_used'
   | 'faq_opened'
   | 'resource_viewed';
 

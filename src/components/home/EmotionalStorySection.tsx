@@ -7,7 +7,8 @@ import {
   Activity, 
   TrendingDown, 
   ShieldCheck,
-  CheckCircle2
+  CheckCircle2,
+  Lock
 } from "lucide-react";
 
 export const EmotionalStorySection: React.FC = () => {
@@ -15,71 +16,80 @@ export const EmotionalStorySection: React.FC = () => {
     {
       icon: TrendingDown,
       title: "Immediate Income Disruption",
-      desc: "Monthly paychecks stop immediately, yet regular grocery, utility, and maintenance bills arrive uninterrupted."
+      desc: "Monthly salary deposits stop immediately, yet grocery, utility bills, society maintenance, and domestic costs arrive uninterrupted.",
+      accent: "from-rose-500 to-amber-500"
     },
     {
       icon: Home,
-      title: "Unforgiving Loan Obligations",
-      desc: "Banks still require home loan EMIs and vehicle repayments on schedule, putting family assets at risk."
+      title: "Unforgiving Loan EMIs",
+      desc: "Banks require home loan and vehicle EMIs strictly on time. Without a designated insurance corpus, family homes face foreclosure.",
+      accent: "from-amber-500 to-yellow-500"
     },
     {
       icon: GraduationCap,
       title: "Children's Educational Compromise",
-      desc: "Rising school and university tuition fees cannot pause without jeopardizing your child's career prospects."
+      desc: "School and university tuition fees cannot wait. A sudden income loss often forces promising children to abandon their career dreams.",
+      accent: "from-blue-600 to-cyan-500"
     },
     {
       icon: Activity,
-      title: "Emergency Medical & Care Costs",
-      desc: "Hospitalization, post-critical care, or rehabilitation expenses rapidly deplete emergency household savings."
+      title: "Critical Illness & Emergency Care",
+      desc: "Major medical emergencies or prolonged treatments rapidly drain lifelong household mutual funds, fixed deposits, and emergency cash.",
+      accent: "from-emerald-500 to-teal-500"
     },
     {
       icon: Receipt,
-      title: "Long-Term Financial Uncertainty",
-      desc: "Surviving family members are forced to make distress financial decisions or deplete long-term retirement savings."
+      title: "Premature Asset Liquidation",
+      desc: "Surviving families are forced into distress sales of property or gold at steep discounts simply to fund immediate day-to-day survival.",
+      accent: "from-purple-600 to-indigo-500"
     },
     {
       icon: AlertTriangle,
-      title: "Loss of Dignity and Independence",
-      desc: "Depending on distant relatives or emergency borrowing during profound grief adds immense emotional pain."
+      title: "Loss of Financial Dignity",
+      desc: "Depending on distant relatives or informal loans during grief causes deep emotional pain. Insurance preserves self-reliance.",
+      accent: "from-rose-600 to-red-500"
     }
   ];
 
   return (
-    <section className="py-20 bg-slate-50 border-b border-slate-200">
+    <section className="py-24 bg-gradient-to-b from-[#f8fafc] via-[#f1f5f9] to-[#ffffff] border-b border-slate-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-100 text-rose-800 text-xs font-bold tracking-wide uppercase">
-            <AlertTriangle className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-800 text-xs font-extrabold tracking-wider uppercase shadow-sm">
+            <AlertTriangle className="w-3.5 h-3.5 text-rose-600" />
             <span>The Reality of Life's Unpredictability</span>
           </div>
           
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
-            One Unexpected Event Can Change Everything.
+          <h2 className="font-serif text-3.5xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.2]">
+            One Unexpected Event Can <span className="text-rose-700">Change Everything.</span>
           </h2>
           
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-            When a tragedy strikes a family, the loss is not merely emotional. The economic foundation that sustains everyday dignity is suddenly shaken.
+          <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+            When tragedy strikes an earning member, the tragedy is never only emotional. The economic foundation sustaining everyday family dignity is instantly fractured.
           </p>
         </div>
 
-        {/* Six Reality Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
+        {/* Six Reality Cards with Luxury Micro-Borders */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-16">
           {financialPressures.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div 
                 key={idx}
-                className="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group"
+                className="bg-white p-7 sm:p-8 rounded-3xl border border-slate-200/90 shadow-card-elevated hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden group"
               >
-                <div className="w-12 h-12 rounded-xl bg-slate-100 text-blue-900 flex items-center justify-center mb-5 group-hover:bg-blue-900 group-hover:text-amber-400 transition-colors">
-                  <Icon className="w-6 h-6" />
+                {/* Top Subtle Color Accent Line */}
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${item.accent}`} />
+
+                <div className="w-13 h-13 w-12 h-12 rounded-2xl bg-[#0b2046] text-gold-400 flex items-center justify-center mb-6 shadow-md group-hover:scale-105 group-hover:bg-[#071329] transition-all">
+                  <Icon className="w-6 h-6 text-gold-400" />
                 </div>
-                <h3 className="text-base font-bold text-slate-900 mb-2">
+                <h3 className="text-lg font-extrabold text-slate-900 mb-2.5 tracking-tight group-hover:text-lic-900 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
+                <p className="text-sm text-slate-600 leading-relaxed font-normal">
                   {item.desc}
                 </p>
               </div>
@@ -87,18 +97,29 @@ export const EmotionalStorySection: React.FC = () => {
           })}
         </div>
 
-        {/* Emotional Synthesis Resolution Box */}
-        <div className="mt-14 max-w-4xl mx-auto bg-gradient-to-br from-blue-950 to-blue-900 text-white rounded-3xl p-8 sm:p-10 shadow-xl border border-blue-800">
-          <div className="flex flex-col md:flex-row items-center gap-6">
-            <div className="w-16 h-16 rounded-2xl bg-amber-400 text-slate-950 flex items-center justify-center shrink-0 shadow-lg">
-              <ShieldCheck className="w-9 h-9" />
+        {/* Emotional Synthesis Resolution Box with Royal Navy & Gold Highlights */}
+        <div className="mt-16 max-w-4xl mx-auto bg-gradient-to-br from-[#061127] via-[#0b2046] to-[#040b18] text-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-gold-500/40 relative overflow-hidden">
+          {/* Subtle Ambient Light */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-gold-500/10 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="flex flex-col md:flex-row items-center gap-7 relative z-10">
+            <div className="relative">
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-gold-400 to-amber-300 opacity-40 blur-sm" />
+              <div className="relative w-18 h-18 w-16 h-16 rounded-2xl bg-gradient-to-tr from-gold-500 to-amber-300 text-slate-950 flex items-center justify-center shrink-0 shadow-gold-glow">
+                <ShieldCheck className="w-10 h-10 text-slate-950" />
+              </div>
             </div>
-            <div className="space-y-2 text-center md:text-left">
-              <h3 className="font-serif text-2xl font-bold tracking-tight text-white">
-                Insurance is designed to create an unbreakable financial safety net against specified risks.
+            
+            <div className="space-y-3 text-center md:text-left">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-gold-300 flex items-center justify-center md:justify-start gap-1.5">
+                <Lock className="w-3.5 h-3.5 text-gold-400" />
+                The Core Economic Purpose of Life Insurance
+              </span>
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-white leading-snug">
+                Life insurance is designed to create an <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-200 to-amber-300">unbreakable financial fortress</span> for your family.
               </h3>
-              <p className="text-sm text-blue-200 leading-relaxed">
-                It does not prevent life's uncertainties, but it ensures that your spouse, children, and parents will never have to compromise their home, their education, or their dignity because of unpaid loans or missing paychecks.
+              <p className="text-sm text-slate-300 leading-relaxed font-normal">
+                It does not prevent life's uncertainties, but it guarantees that your spouse, children, and parents will never have to compromise their home, their education, or their dignity because of unpaid debts or missing paychecks.
               </p>
             </div>
           </div>

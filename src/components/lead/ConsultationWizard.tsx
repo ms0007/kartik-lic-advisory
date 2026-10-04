@@ -131,16 +131,16 @@ export const ConsultationWizard: React.FC<ConsultationWizardProps> = ({
   }
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200/80 shadow-lg p-6 sm:p-8 max-w-xl mx-auto">
+    <div className="bg-white rounded-3xl border border-slate-200/90 shadow-2xl p-7 sm:p-10 max-w-xl mx-auto">
       {/* Progress Bar & Header */}
-      <div className="mb-6">
-        <div className="flex justify-between items-center text-xs font-semibold text-slate-500 mb-2">
-          <span className="text-blue-900">Step {step} of {totalSteps}</span>
-          <span>{Math.round((step / totalSteps) * 100)}% Completed</span>
+      <div className="mb-7">
+        <div className="flex justify-between items-center text-xs font-bold text-slate-500 mb-2.5">
+          <span className="text-lic-900 uppercase tracking-wider font-extrabold">Step {step} of {totalSteps}</span>
+          <span className="text-gold-700 font-extrabold">{Math.round((step / totalSteps) * 100)}% Completed</span>
         </div>
-        <div className="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
+        <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
           <div 
-            className="bg-gradient-to-r from-blue-800 to-amber-500 h-1.5 rounded-full transition-all duration-300"
+            className="bg-gradient-to-r from-lic-900 via-lic-700 to-gold-400 h-2 rounded-full transition-all duration-300 shadow-sm"
             style={{ width: `${(step / totalSteps) * 100}%` }}
           />
         </div>
@@ -449,12 +449,12 @@ export const ConsultationWizard: React.FC<ConsultationWizardProps> = ({
         )}
 
         {/* Step Navigation Controls */}
-        <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+        <div className="mt-8 pt-5 border-t border-slate-100 flex items-center justify-between gap-3">
           {step > 1 ? (
             <button
               type="button"
               onClick={handleBack}
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors"
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-xl transition-colors uppercase tracking-wider"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Back</span>
@@ -467,7 +467,7 @@ export const ConsultationWizard: React.FC<ConsultationWizardProps> = ({
             <button
               type="button"
               onClick={handleNext}
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 text-xs font-semibold text-white bg-blue-900 hover:bg-blue-800 rounded-lg shadow-sm transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 text-xs font-extrabold uppercase tracking-wider text-white bg-lic-900 hover:bg-lic-800 rounded-xl shadow-md transition-all"
             >
               <span>Continue</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -476,13 +476,13 @@ export const ConsultationWizard: React.FC<ConsultationWizardProps> = ({
             <button
               type="submit"
               disabled={isSubmitting}
-              className="inline-flex items-center gap-2 px-6 py-3 text-xs font-bold uppercase tracking-wider text-slate-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 rounded-lg shadow-md disabled:opacity-50 transition-all"
+              className="inline-flex items-center gap-2 px-7 py-3.5 text-xs font-extrabold uppercase tracking-wider text-slate-950 bg-gradient-to-r from-gold-400 via-gold-300 to-gold-500 hover:from-gold-300 hover:to-gold-400 rounded-xl shadow-gold-glow hover:shadow-gold-glow-lg disabled:opacity-50 transition-all transform hover:-translate-y-0.5"
             >
               {isSubmitting ? (
                 <span>Submitting...</span>
               ) : (
                 <>
-                  <ShieldCheck className="w-4 h-4" />
+                  <ShieldCheck className="w-4 h-4 text-slate-950" />
                   <span>Request Personalised Guidance</span>
                 </>
               )}
