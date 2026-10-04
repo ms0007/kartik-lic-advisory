@@ -10,12 +10,15 @@ if (!fs.existsSync(outDir)) {
 }
 
 const shots = [
-  { name: 'desktop-1366-story.png', size: '1366,2800', url: 'http://localhost:3000' }
+  { name: 'desktop-consultation-section.png', size: '1366,1200', url: 'http://localhost:3000/#consultation' },
+  { name: 'desktop-contact-page.png', size: '1366,1200', url: 'http://localhost:3000/contact' }
 ];
+
+const profileDir = path.join(__dirname, '.edge_profile');
 
 for (const s of shots) {
   const target = path.join(outDir, s.name);
-  const cmd = `${edgePath} --headless --disable-gpu --no-sandbox --screenshot="${target}" --window-size=${s.size} "${s.url}"`;
+  const cmd = `${edgePath} --headless --disable-gpu --no-sandbox --user-data-dir="${profileDir}" --no-first-run --no-default-browser-check --screenshot="${target}" --window-size=${s.size} "${s.url}"`;
   console.log('Capturing:', s.name);
   try {
     execSync(cmd, { stdio: 'inherit' });

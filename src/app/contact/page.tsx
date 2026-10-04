@@ -67,95 +67,97 @@ export default function ContactPage() {
         </section>
 
         {/* Contact Methods & Consultation Form Grid */}
-        <section className="py-16 bg-slate-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-16 bg-[#020614] border-t border-white/10 relative overflow-hidden">
+          <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-lic-900/15 rounded-full blur-[140px] pointer-events-none" />
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
               
               {/* Left Column: Direct Contact Information */}
               <div className="lg:col-span-5 space-y-6">
                 
-                <div className="bg-white rounded-3xl border border-slate-200/90 shadow-md p-6 sm:p-8 space-y-6">
+                <div className="bg-[#050f24] rounded-3xl border border-gold-500/30 shadow-2xl p-6 sm:p-8 space-y-6 text-white">
                   <div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-blue-900">
+                    <span className="text-xs font-bold uppercase tracking-wider text-gold-300">
                       Direct Advisory Channels
                     </span>
-                    <h2 className="font-serif text-2xl font-bold text-slate-900 mt-1">
+                    <h2 className="font-serif text-2xl font-bold text-white mt-1">
                       Direct Contact Details
                     </h2>
-                    <p className="text-xs text-slate-600 mt-1">
+                    <p className="text-xs text-slate-300 mt-1">
                       Kartik Barmera • Development Officer, LIC of India
                     </p>
                   </div>
 
-                  <div className="space-y-4 text-xs sm:text-sm text-slate-700">
+                  <div className="space-y-4 text-xs sm:text-sm text-slate-200">
                     {/* Phone */}
-                    <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-blue-50/60 border border-blue-100">
-                      <Phone className="w-5 h-5 text-blue-900 shrink-0 mt-0.5" />
+                    <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-gold-500/10 border border-gold-500/20">
+                      <Phone className="w-5 h-5 text-gold-400 shrink-0 mt-0.5" />
                       <div>
-                        <span className="font-bold text-slate-900 block">Phone Consultation:</span>
+                        <span className="font-bold text-white block">Phone Consultation:</span>
                         <a 
                           href={`tel:+91${advisorData.phone}`} 
-                          className="font-mono text-blue-900 font-bold hover:underline"
+                          className="font-mono text-gold-300 font-bold hover:underline"
                         >
                           {advisorData.displayPhone}
                         </a>
-                        <p className="text-[11px] text-slate-500 mt-0.5">Direct phone call for policy guidance</p>
+                        <p className="text-[11px] text-slate-300 mt-0.5">Direct phone call for policy guidance</p>
                       </div>
                     </div>
 
                     {/* WhatsApp */}
-                    <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-emerald-50/60 border border-emerald-100">
-                      <MessageSquare className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" />
+                    <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-emerald-950/60 border border-emerald-500/30">
+                      <MessageSquare className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
                       <div>
-                        <span className="font-bold text-slate-900 block">WhatsApp Advisory:</span>
+                        <span className="font-bold text-white block">WhatsApp Advisory:</span>
                         <a 
                           href={buildWhatsAppLink()} 
                           target="_blank" 
-                          rel="noopener noreferrer"
-                          className="text-emerald-800 font-semibold hover:underline"
+                          rel="noopener noreferrer" 
+                          className="text-emerald-300 font-semibold hover:underline"
                         >
                           Chat on WhatsApp
                         </a>
-                        <p className="text-[11px] text-slate-500 mt-0.5">Quick questions & brochure requests</p>
+                        <p className="text-[11px] text-slate-300 mt-0.5">Quick questions & brochure requests</p>
                       </div>
                     </div>
 
                     {/* Office Location Placeholder */}
-                    <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                      <MapPin className="w-5 h-5 text-slate-500 shrink-0 mt-0.5" />
+                    <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-white/5 border border-white/10">
+                      <MapPin className="w-5 h-5 text-gold-400 shrink-0 mt-0.5" />
                       <div>
-                        <span className="font-bold text-slate-800 block">Office Location:</span>
-                        <span className="text-slate-500 italic">{advisorData.officeAddress}</span>
+                        <span className="font-bold text-white block">Office Location:</span>
+                        <span className="text-slate-300 italic">{advisorData.officeAddress}</span>
                         <p className="text-[11px] text-slate-400 mt-0.5">Primary market: India</p>
                       </div>
                     </div>
 
                     {/* Email Placeholder */}
-                    <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-slate-50 border border-slate-200">
-                      <Mail className="w-5 h-5 text-slate-500 shrink-0 mt-0.5" />
+                    <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-white/5 border border-white/10">
+                      <Mail className="w-5 h-5 text-gold-400 shrink-0 mt-0.5" />
                       <div>
-                        <span className="font-bold text-slate-800 block">Official Email:</span>
-                        <span className="text-slate-500 italic">{advisorData.email}</span>
+                        <span className="font-bold text-white block">Official Email:</span>
+                        <span className="text-slate-300 italic">{advisorData.email}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-slate-100 text-xs text-slate-600 space-y-1">
-                    <span className="font-bold text-slate-800 block">Branch & Divisional Details:</span>
-                    <span className="italic text-slate-500">{advisorData.branchDetails}</span>
+                  <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-xs text-slate-300 space-y-1">
+                    <span className="font-bold text-white block">Branch & Divisional Details:</span>
+                    <span className="italic text-slate-400">{advisorData.branchDetails}</span>
                   </div>
                 </div>
 
                 {/* Trust Pledge Box */}
-                <div className="bg-gradient-to-br from-blue-950 to-blue-900 text-white rounded-3xl p-6 sm:p-7 space-y-3 shadow-md border border-blue-800">
-                  <div className="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider">
-                    <ShieldCheck className="w-4 h-4" />
+                <div className="bg-gradient-to-br from-lic-950 via-[#030917] to-lic-900 text-white rounded-3xl p-6 sm:p-7 space-y-3 shadow-xl border border-gold-500/30">
+                  <div className="flex items-center gap-2 text-gold-400 text-xs font-bold uppercase tracking-wider">
+                    <ShieldCheck className="w-4 h-4 text-gold-400" />
                     <span>Privacy & Professional Pledge</span>
                   </div>
                   <h3 className="font-serif text-lg font-bold text-white">
                     Zero Spam. No Unsolicited Sales Calls.
                   </h3>
-                  <p className="text-xs text-slate-200 leading-relaxed">
+                  <p className="text-xs text-slate-300 leading-relaxed">
                     Your contact information is strictly used to answer your inquiry. We never sell, share, or broadcast your information to external marketing agencies.
                   </p>
                 </div>
@@ -164,23 +166,8 @@ export default function ContactPage() {
 
               {/* Right Column: Interactive Consultation Wizard */}
               <div className="lg:col-span-7">
-                <div className="bg-white rounded-3xl border border-slate-200/90 shadow-md p-6 sm:p-8">
-                  <div className="mb-6 border-b border-slate-100 pb-4">
-                    <span className="text-xs font-bold uppercase tracking-wider text-blue-900">
-                      Online Form
-                    </span>
-                    <h2 className="font-serif text-2xl font-bold text-slate-900 mt-1">
-                      Request a Consultation
-                    </h2>
-                    <p className="text-xs text-slate-600 mt-1">
-                      Fill out this 1-minute form to receive a structured assessment from Kartik Barmera.
-                    </p>
-                  </div>
-
-                  <ConsultationWizard initialInterest="Life Insurance Advisory" />
-                </div>
+                <ConsultationWizard initialInterest="Life Insurance Advisory" />
               </div>
-
             </div>
           </div>
         </section>

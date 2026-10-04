@@ -12,7 +12,9 @@
 
 # production
 /build
-.vercel
+# edge temp profile
+.edge_profile/
+scripts/.edge_profile/
 
 
 # misc
