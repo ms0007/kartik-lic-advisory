@@ -53,55 +53,55 @@ export default function InsuranceCalculatorPage() {
         </section>
 
         {/* Calculator Engine Component */}
-        <section className="py-12 bg-slate-100/80">
+        <section className="py-12 bg-[#030919] border-b border-white/10 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ProtectionCalculator onOpenConsultation={() => setModalOpen(true)} />
           </div>
         </section>
 
         {/* Educational Explainer on How the Math Works */}
-        <section className="py-16 bg-white border-t border-slate-200">
+        <section className="py-16 bg-[#020614] text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 space-y-8">
             <div className="text-center space-y-2">
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white">
                 Understanding the Human Life Value (HLV) Method
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600">
+              <p className="text-xs sm:text-sm text-slate-400">
                 How certified financial advisors calculate adequate life insurance protection.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-700">
-              <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-                <span className="font-bold text-blue-900 text-sm block">1. Sustenance Capital</span>
-                <p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-300">
+              <div className="p-5 rounded-2xl bg-[#050e20]/90 border border-white/10 space-y-2 shadow-lg">
+                <span className="font-bold text-gold-300 text-sm block">1. Sustenance Capital</span>
+                <p className="text-slate-300 leading-relaxed">
                   Multiplies your current monthly household expenses by 15 to 20 years to account for inflation-adjusted living expenses until your youngest dependent becomes financially self-reliant.
                 </p>
               </div>
 
-              <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-                <span className="font-bold text-blue-900 text-sm block">2. Debt Liquidation</span>
-                <p>
+              <div className="p-5 rounded-2xl bg-[#050e20]/90 border border-white/10 space-y-2 shadow-lg">
+                <span className="font-bold text-gold-300 text-sm block">2. Debt Liquidation</span>
+                <p className="text-slate-300 leading-relaxed">
                   Adds 100% of all outstanding home loans, auto loans, and personal borrowings so nominees can clear all bank claims immediately upon payout.
                 </p>
               </div>
 
-              <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-                <span className="font-bold text-blue-900 text-sm block">3. Milestone Security</span>
-                <p>
+              <div className="p-5 rounded-2xl bg-[#050e20]/90 border border-white/10 space-y-2 shadow-lg">
+                <span className="font-bold text-gold-300 text-sm block">3. Milestone Security</span>
+                <p className="text-slate-300 leading-relaxed">
                   Incorporates inflation-adjusted future higher education and career capital for minor children, while subtracting existing life cover and liquid savings.
                 </p>
               </div>
             </div>
 
             {/* Clear Educational Labeling */}
-            <div className="p-4 rounded-xl bg-blue-50 border border-blue-200 text-xs text-blue-950 space-y-1">
-              <p className="font-bold flex items-center gap-1.5 text-blue-900">
-                <Info className="w-4 h-4 text-blue-800" />
+            <div className="p-4 rounded-xl bg-[#061226]/90 border border-gold-500/30 text-xs text-slate-300 space-y-1 shadow-lg">
+              <p className="font-bold flex items-center gap-1.5 text-gold-300">
+                <Info className="w-4 h-4 text-gold-400" />
                 <span>Important Regulatory Clarification:</span>
               </p>
-              <p>
-                This calculator is an educational estimation tool provided for financial awareness. It is <strong>NOT an official LIC premium calculator</strong> and does not constitute formal financial underwriting or an insurance offer. Policy issuance, premiums, and underwriting acceptance are governed solely by official LIC rules and medical schedules.
+              <p className="leading-relaxed">
+                This calculator is an educational estimation tool provided for financial awareness. It is <strong className="text-white">NOT an official LIC premium calculator</strong> and does not constitute formal financial underwriting or an insurance offer. Policy issuance, premiums, and underwriting acceptance are governed solely by official LIC rules and medical schedules.
               </p>
             </div>
           </div>

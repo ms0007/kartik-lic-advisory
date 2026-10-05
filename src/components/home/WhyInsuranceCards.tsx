@@ -64,18 +64,21 @@ export const WhyInsuranceCards: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-white relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-[#020716] text-white border-b border-white/10 relative overflow-hidden">
+      {/* Background Ambient Glow */}
+      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-lic-900/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-lic-50 border border-lic-100 text-lic-900 text-xs font-extrabold uppercase tracking-wider shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-gold-600" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-300 text-xs font-extrabold uppercase tracking-wider shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
             <span>Strategic Financial Pillars</span>
           </div>
-          <h2 className="font-serif text-3.5xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.2]">
+          <h2 className="font-serif text-3.5xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.2]">
             Why Life Insurance Matters in Real Life
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+          <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
             Life insurance is neither an expense nor a simple tax deduction. It is an intentional capital structure that shields your life's work across six fundamental areas.
           </p>
         </div>
@@ -86,33 +89,33 @@ export const WhyInsuranceCards: React.FC = () => {
             return (
               <div 
                 key={idx}
-                className="bg-white rounded-3xl border border-slate-200/90 p-8 flex flex-col justify-between shadow-card-elevated hover:shadow-card-hover hover:border-gold-500/50 hover:-translate-y-1.5 transition-all duration-300 group relative"
+                className="bg-[#050e20]/90 rounded-3xl border border-white/10 p-8 flex flex-col justify-between shadow-glass-dark hover:shadow-2xl hover:border-gold-500/50 hover:bg-[#071329] hover:-translate-y-1.5 transition-all duration-300 group relative"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-13 h-13 w-12 h-12 rounded-2xl bg-gradient-to-br from-lic-900 to-lic-950 text-gold-400 flex items-center justify-center shadow-md group-hover:scale-105 group-hover:bg-[#071329] transition-all">
+                    <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 text-gold-400 flex items-center justify-center shadow-md group-hover:scale-105 group-hover:border-gold-500/40 transition-all">
                       <Icon className="w-6 h-6 text-gold-400" />
                     </div>
-                    <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200/80">
+                    <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-white/5 text-gold-300 border border-gold-500/20">
                       {card.badge}
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-extrabold text-slate-900 mb-3 tracking-tight group-hover:text-lic-900 transition-colors">
+                  <h3 className="text-xl font-extrabold text-white mb-3 tracking-tight group-hover:text-gold-200 transition-colors">
                     {card.title}
                   </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed font-normal">
+                  <p className="text-sm text-slate-300 leading-relaxed font-normal">
                     {card.desc}
                   </p>
                 </div>
 
-                <div className="pt-6 mt-8 border-t border-slate-100">
+                <div className="pt-6 mt-8 border-t border-white/10">
                   <Link 
                     href={card.link}
-                    className="inline-flex items-center gap-2 text-xs font-extrabold text-lic-900 group-hover:text-gold-700 transition-colors uppercase tracking-wider"
+                    className="inline-flex items-center gap-2 text-xs font-extrabold text-gold-300 group-hover:text-gold-200 transition-colors uppercase tracking-wider"
                   >
                     <span>{card.cta}</span>
-                    <ArrowRight className="w-4 h-4 text-gold-600 group-hover:translate-x-1.5 transition-transform" />
+                    <ArrowRight className="w-4 h-4 text-gold-400 group-hover:translate-x-1.5 transition-transform" />
                   </Link>
                 </div>
               </div>

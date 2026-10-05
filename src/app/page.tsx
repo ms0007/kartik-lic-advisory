@@ -78,7 +78,7 @@ export default function HomePage() {
         />
 
         {/* 8. Insurance Need Calculator */}
-        <section ref={calculatorRef} id="calculator" className="py-20 bg-slate-100/70 border-b border-slate-200">
+        <section ref={calculatorRef} id="calculator" className="py-20 bg-[#030919] border-b border-white/10 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ProtectionCalculator onOpenConsultation={() => openConsultation("Calculator Protection Gap Review")} />
           </div>

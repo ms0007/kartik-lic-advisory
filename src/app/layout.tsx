@@ -103,7 +103,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col font-sans antialiased text-slate-900 bg-white">
+      <body className="min-h-screen flex flex-col font-sans antialiased text-slate-100 bg-[#020614]">
         <LanguageProvider>
           {children}
         </LanguageProvider>

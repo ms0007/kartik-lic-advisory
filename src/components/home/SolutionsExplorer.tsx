@@ -37,21 +37,24 @@ export const SolutionsExplorer: React.FC<SolutionsExplorerProps> = ({
   };
 
   return (
-    <section id="solutions-section" className="py-24 bg-white relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="solutions-section" className="py-24 bg-[#020614] text-white border-b border-white/10 relative overflow-hidden">
+      {/* Background Ambient Glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-lic-900/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-lic-50 border border-lic-200 text-lic-900 text-xs font-extrabold uppercase tracking-wider shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-gold-600" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-300 text-xs font-extrabold uppercase tracking-wider shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
             <span>Official Policy Portfolio</span>
           </div>
           
-          <h2 className="font-serif text-3.5xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.2]">
-            LIC Solutions & <span className="text-lic-900">Policy Explorer</span>
+          <h2 className="font-serif text-3.5xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.2]">
+            LIC Solutions & <span className="text-gold-300">Policy Explorer</span>
           </h2>
           
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+          <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
             Transparent, source-backed specifications for flagship individual insurance plans. All Table Numbers and IRDAI UINs are verified directly with official LIC circulars.
           </p>
         </div>
@@ -68,8 +71,8 @@ export const SolutionsExplorer: React.FC<SolutionsExplorerProps> = ({
               }}
               className={`px-5 py-2.5 rounded-2xl text-xs font-extrabold transition-all duration-200 shadow-sm ${
                 activeCategory === cat.id
-                  ? "bg-[#060e1d] text-gold-300 border border-gold-400/60 ring-2 ring-gold-400/20 shadow-gold-glow"
-                  : "bg-white text-slate-700 hover:text-lic-950 hover:border-gold-400/60 border border-slate-200/90 hover:bg-slate-50"
+                  ? "bg-gradient-to-r from-gold-500 to-gold-400 text-slate-950 border border-gold-400 shadow-gold-glow font-bold"
+                  : "bg-white/[0.03] text-slate-300 hover:text-white hover:border-gold-500/40 border border-white/10 hover:bg-white/[0.06]"
               }`}
             >
               {cat.label}
@@ -82,74 +85,74 @@ export const SolutionsExplorer: React.FC<SolutionsExplorerProps> = ({
           {filteredProducts.map((product) => (
             <div
               key={product.id}
-              className="bg-white rounded-3xl border border-slate-200/90 shadow-card-elevated hover:shadow-card-hover hover:border-gold-500/50 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden group relative"
+              className="bg-[#050e20]/95 rounded-3xl border border-white/10 shadow-glass-dark hover:border-gold-500/50 hover:bg-[#071329] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden group relative"
             >
               {/* Card Header with Table & UIN badges */}
-              <div className="p-7 border-b border-slate-100 bg-gradient-to-b from-slate-50/50 to-white">
+              <div className="p-7 border-b border-white/10 bg-[#081836]/60">
                 <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className="inline-block px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-lic-50 text-lic-900 border border-lic-200/80">
+                  <span className="inline-block px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-gold-500/10 text-gold-300 border border-gold-500/30">
                     {product.badge}
                   </span>
-                  <span className="text-[11px] font-mono font-bold text-lic-900 bg-slate-100 px-2.5 py-0.5 rounded-md border border-slate-200">
+                  <span className="text-[11px] font-mono font-bold text-slate-200 bg-white/5 px-2.5 py-0.5 rounded-md border border-white/10">
                     Table {product.tableNo}
                   </span>
                 </div>
 
-                <h3 className="font-serif text-2xl font-bold text-slate-900 group-hover:text-lic-900 transition-colors leading-tight">
+                <h3 className="font-serif text-2xl font-bold text-white group-hover:text-gold-200 transition-colors leading-tight">
                   {product.name}
                 </h3>
                 
-                <div className="text-[11px] text-slate-500 font-mono mt-1 font-medium">
+                <div className="text-[11px] text-slate-400 font-mono mt-1 font-medium">
                   IRDAI UIN: {product.uin}
                 </div>
 
-                <p className="text-xs text-slate-600 mt-3 font-normal leading-relaxed">
+                <p className="text-xs text-slate-300 mt-3 font-normal leading-relaxed">
                   {product.tagline}
                 </p>
               </div>
 
               {/* Card Body */}
-              <div className="p-7 space-y-5 text-xs text-slate-600 flex-grow">
+              <div className="p-7 space-y-5 text-xs text-slate-300 flex-grow">
                 <div>
-                  <span className="font-extrabold text-slate-900 uppercase tracking-wider text-[10px] block mb-1">
+                  <span className="font-extrabold text-gold-300 uppercase tracking-wider text-[10px] block mb-1">
                     Who it is suited for:
                   </span>
-                  <p className="text-slate-600 leading-relaxed font-normal">
+                  <p className="text-slate-300 leading-relaxed font-normal">
                     {product.targetAudience}
                   </p>
                 </div>
 
                 <div>
-                  <span className="font-extrabold text-slate-900 uppercase tracking-wider text-[10px] block mb-1">
+                  <span className="font-extrabold text-gold-300 uppercase tracking-wider text-[10px] block mb-1">
                     Primary Capital Objective:
                   </span>
-                  <p className="text-slate-600 leading-relaxed font-normal">
+                  <p className="text-slate-300 leading-relaxed font-normal">
                     {product.highLevelPurpose}
                   </p>
                 </div>
 
                 {/* Key Features */}
                 <div>
-                  <span className="font-extrabold text-slate-900 uppercase tracking-wider text-[10px] block mb-2">
+                  <span className="font-extrabold text-white uppercase tracking-wider text-[10px] block mb-2">
                     Key Policy Features:
                   </span>
                   <ul className="space-y-2">
                     {product.keyFeatures.slice(0, 3).map((feat, fIdx) => (
                       <li key={fIdx} className="flex items-start gap-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span className="text-slate-700 font-medium leading-relaxed">{feat}</span>
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                        <span className="text-slate-200 font-medium leading-relaxed">{feat}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 {/* Important Conditions */}
-                <div className="pt-3 border-t border-slate-100">
-                  <span className="font-extrabold text-amber-800 uppercase tracking-wider text-[10px] block mb-1.5 flex items-center gap-1.5">
-                    <AlertCircle className="w-3.5 h-3.5 text-amber-600" />
+                <div className="pt-3 border-t border-white/10">
+                  <span className="font-extrabold text-gold-400 uppercase tracking-wider text-[10px] block mb-1.5 flex items-center gap-1.5">
+                    <AlertCircle className="w-3.5 h-3.5 text-gold-400" />
                     <span>Important Considerations:</span>
                   </span>
-                  <ul className="space-y-1 text-[11px] text-slate-500 font-normal">
+                  <ul className="space-y-1 text-[11px] text-slate-400 font-normal">
                     {product.importantConditions.slice(0, 2).map((cond, cIdx) => (
                       <li key={cIdx}>• {cond}</li>
                     ))}
@@ -158,7 +161,7 @@ export const SolutionsExplorer: React.FC<SolutionsExplorerProps> = ({
               </div>
 
               {/* Card Action Footer */}
-              <div className="p-6 bg-slate-50 border-t border-slate-200/80 space-y-3">
+              <div className="p-6 bg-[#040c1e] border-t border-white/10 space-y-3">
                 <div className="grid grid-cols-2 gap-2.5">
                   <button
                     type="button"
@@ -173,9 +176,9 @@ export const SolutionsExplorer: React.FC<SolutionsExplorerProps> = ({
                     href={buildPlanWhatsAppLink(product.name, product.tableNo)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="py-3 px-3 rounded-xl text-xs font-bold text-emerald-800 bg-white hover:bg-emerald-50 border border-emerald-300 transition-colors flex items-center justify-center gap-1.5 shadow-sm"
+                    className="py-3 px-3 rounded-xl text-xs font-bold text-emerald-300 bg-emerald-950/60 hover:bg-emerald-900/60 border border-emerald-500/40 transition-colors flex items-center justify-center gap-1.5 shadow-sm"
                   >
-                    <MessageSquare className="w-4 h-4 text-emerald-600" />
+                    <MessageSquare className="w-4 h-4 text-emerald-400" />
                     <span>WhatsApp</span>
                   </a>
                 </div>
@@ -185,10 +188,10 @@ export const SolutionsExplorer: React.FC<SolutionsExplorerProps> = ({
                     href="https://licindia.in"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-lic-900 hover:text-gold-700 transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-gold-400 hover:text-gold-300 transition-colors"
                   >
                     <span>Official LIC Portal Source</span>
-                    <ExternalLink className="w-3.5 h-3.5 text-gold-600" />
+                    <ExternalLink className="w-3.5 h-3.5 text-gold-400" />
                   </a>
                 </div>
               </div>

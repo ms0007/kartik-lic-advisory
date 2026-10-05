@@ -143,24 +143,28 @@ export const ProtectionNeedsInteractive: React.FC<ProtectionNeedsInteractiveProp
   const CurrentIcon = current.icon;
 
   return (
-    <section className="py-20 bg-slate-50 border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-[#030816] text-white border-b border-white/10 relative overflow-hidden">
+      {/* Background Ambient Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-lic-900/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-          <span className="text-xs font-bold uppercase tracking-wider text-blue-900 bg-blue-100 px-3 py-1 rounded-full">
-            Tailored Life-Stage Architecture
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+        <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-300 text-xs font-extrabold uppercase tracking-wider shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+            <span>Tailored Life-Stage Architecture</span>
+          </div>
+          <h2 className="font-serif text-3.5xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.2]">
             Protection Needs Differ by Life Stage
           </h2>
-          <p className="text-base text-slate-600 leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
             One size does not fit all in life insurance. Select your current life stage to understand how financial priorities evolve and what to evaluate.
           </p>
         </div>
 
         {/* Horizontal Scrollable / Grid Tab Selector */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 mb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5 mb-10">
           {personaNeeds.map((p, idx) => {
             const Icon = p.icon;
             const isActive = activeTab === idx;
@@ -169,56 +173,56 @@ export const ProtectionNeedsInteractive: React.FC<ProtectionNeedsInteractiveProp
                 key={p.id}
                 type="button"
                 onClick={() => setActiveTab(idx)}
-                className={`p-3 rounded-xl border text-center flex flex-col items-center justify-center transition-all ${
+                className={`p-3.5 rounded-2xl border text-center flex flex-col items-center justify-center transition-all ${
                   isActive
-                    ? "bg-blue-900 text-white border-blue-900 shadow-md font-semibold"
-                    : "bg-white text-slate-700 border-slate-200 hover:border-blue-400 hover:bg-slate-50"
+                    ? "bg-gradient-to-r from-gold-500 to-gold-400 text-slate-950 border-gold-400 shadow-gold-glow font-bold"
+                    : "bg-white/[0.03] text-slate-300 border-white/10 hover:border-gold-500/40 hover:bg-white/[0.06]"
                 }`}
               >
-                <Icon className={`w-5 h-5 mb-1.5 ${isActive ? "text-amber-400" : "text-blue-800"}`} />
-                <span className="text-xs font-medium leading-tight">{p.title}</span>
+                <Icon className={`w-5 h-5 mb-1.5 ${isActive ? "text-slate-950" : "text-gold-400"}`} />
+                <span className="text-xs font-semibold leading-tight">{p.title}</span>
               </button>
             );
           })}
         </div>
 
         {/* Selected Persona Deep Dive Card */}
-        <div className="bg-white rounded-3xl border border-slate-200/90 shadow-lg p-6 sm:p-10 transition-all">
+        <div className="bg-[#050e20]/90 rounded-3xl border border-white/10 shadow-glass-dark p-6 sm:p-10 transition-all relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            <div className="lg:col-span-8 space-y-5">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-900 flex items-center justify-center">
-                  <CurrentIcon className="w-6 h-6" />
+            <div className="lg:col-span-8 space-y-6">
+              <div className="flex items-center gap-3.5">
+                <div className="w-13 h-13 w-12 h-12 rounded-2xl bg-white/5 border border-white/10 text-gold-400 flex items-center justify-center shrink-0 shadow-md">
+                  <CurrentIcon className="w-6 h-6 text-gold-400" />
                 </div>
                 <div>
-                  <div className="flex items-center gap-2">
-                    <h3 className="font-serif text-2xl font-bold text-slate-900">
+                  <div className="flex items-center gap-2.5 flex-wrap">
+                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
                       {current.title}
                     </h3>
-                    <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">
+                    <span className="text-xs font-bold px-3 py-0.5 rounded-full bg-white/5 text-gold-300 border border-gold-500/20">
                       {current.ageRange}
                     </span>
                   </div>
-                  <p className="text-xs text-blue-900 font-semibold mt-0.5">
+                  <p className="text-xs text-gold-400 font-semibold mt-1">
                     Strategic Focus & Life Milestone Alignment
                   </p>
                 </div>
               </div>
 
-              <p className="text-sm text-slate-700 leading-relaxed font-medium">
+              <p className="text-sm sm:text-base text-slate-200 leading-relaxed font-normal">
                 {current.summary}
               </p>
 
               {/* Core Objectives List */}
-              <div className="space-y-2 pt-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800">
+              <div className="space-y-3 pt-2">
+                <h4 className="text-xs font-extrabold uppercase tracking-wider text-gold-300">
                   Key Priorities to Address:
                 </h4>
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   {current.coreObjectives.map((obj, i) => (
-                    <div key={i} className="flex items-start gap-2.5 text-xs text-slate-600">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                    <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                       <span>{obj}</span>
                     </div>
                   ))}
@@ -226,23 +230,25 @@ export const ProtectionNeedsInteractive: React.FC<ProtectionNeedsInteractiveProp
               </div>
 
               {/* Potentially Relevant Solutions */}
-              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 text-xs text-slate-700">
-                <strong className="text-blue-900">Relevant Product Categories to Evaluate:</strong> {current.relevantSolutions}
+              <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 text-xs text-slate-300 leading-relaxed">
+                <strong className="text-gold-300 font-bold block sm:inline mb-1 sm:mb-0">Relevant Product Categories to Evaluate: </strong>
+                <span>{current.relevantSolutions}</span>
               </div>
 
               {/* Responsible Advisory Notice */}
-              <p className="text-[11px] text-slate-500 italic">
+              <p className="text-[11px] text-slate-400 italic">
                 * Note: {current.advisoryNotice} A definitive policy recommendation is only provided after collecting sufficient personal details and assessing formal underwriting suitability.
               </p>
             </div>
 
             {/* Action Card */}
-            <div className="lg:col-span-4 bg-gradient-to-br from-blue-950 to-blue-900 text-white rounded-2xl p-6 sm:p-7 flex flex-col justify-between space-y-6 shadow-md border border-blue-800">
-              <div className="space-y-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">
+            <div className="lg:col-span-4 bg-gradient-to-br from-[#0a1733] to-[#040b19] text-white rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-2xl border border-gold-500/30">
+              <div className="space-y-2.5">
+                <span className="text-xs font-extrabold uppercase tracking-widest text-gold-400 flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-gold-400" />
                   Personal Consultation
                 </span>
-                <h4 className="font-serif text-xl font-bold text-white leading-snug">
+                <h4 className="font-serif text-xl sm:text-2xl font-bold text-white leading-snug">
                   Explore Options for {current.title}
                 </h4>
                 <p className="text-xs text-slate-300 leading-relaxed">
@@ -253,10 +259,10 @@ export const ProtectionNeedsInteractive: React.FC<ProtectionNeedsInteractiveProp
               <button
                 type="button"
                 onClick={() => onSelectNeed(current.title)}
-                className="w-full py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-950 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow transition-all flex items-center justify-center gap-2"
+                className="w-full py-3.5 px-5 rounded-xl text-xs font-extrabold uppercase tracking-wider text-slate-950 bg-gradient-to-r from-gold-400 via-gold-300 to-gold-500 hover:from-gold-300 hover:to-gold-400 shadow-gold-glow transition-all flex items-center justify-center gap-2 group"
               >
                 <span>Request Personalised Guidance</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
 

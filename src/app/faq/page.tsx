@@ -62,7 +62,7 @@ export default function FAQPage() {
         </section>
 
         {/* FAQ Full Component (Uncapped, showing all 20+ questions) */}
-        <div className="py-12">
+        <div className="py-12 bg-[#020614]">
           <FAQSection limit={faqsData.length} showCategories={true} />
         </div>
       </main>

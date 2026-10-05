@@ -58,55 +58,55 @@ export default function WhyLifeInsurancePage() {
         </section>
 
         {/* Deep Dive Narrative Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-[#030816] text-white border-t border-white/10">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 space-y-12">
             
             {/* Section 1: The Breadwinner Equation */}
             <div id="income-protection" className="space-y-4">
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white">
                 1. The Breadwinner's Economic Equation
               </h2>
-              <div className="p-4 rounded-xl bg-blue-50 border border-blue-100 text-sm text-blue-950 font-medium leading-relaxed">
-                <strong>Quick Summary:</strong> Your greatest financial asset is your future lifetime earning ability. If you earn ₹15 Lakhs a year at age 30, your family relies on over ₹4.5 Crores of future income to sustain their life.
+              <div className="p-4 rounded-xl bg-[#061226]/80 border border-gold-500/30 text-sm text-gold-200 font-medium leading-relaxed shadow-lg">
+                <strong className="text-gold-300">Quick Summary:</strong> Your greatest financial asset is your future lifetime earning ability. If you earn ₹15 Lakhs a year at age 30, your family relies on over ₹4.5 Crores of future income to sustain their life.
               </div>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
                 When life proceeds normally, this income arrives predictably every month. It pays for your apartment EMI, purchases groceries, pays electricity and fuel bills, and funds weekend family vacations. But if that income stream terminates unexpectedly, everyday costs do not decrease proportionally.
               </p>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
                 Pure term life insurance (like LIC's Yuva Term or Digi Term) creates an instant financial reservoir equal to that missing future earning power. The capital ensures that the surviving spouse does not have to sell the family home, compromise children's education, or depend on charity.
               </p>
             </div>
 
             {/* Section 2: Long-Term Goals */}
-            <div id="long-term-goals" className="space-y-4 pt-6 border-t border-slate-200">
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
+            <div id="long-term-goals" className="space-y-4 pt-6 border-t border-white/10">
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white">
                 2. Protecting Long-Term Family Milestones
               </h2>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Unlike purely market-linked investments (such as stocks or mutual fund SIPs) that stop immediately if contributions cease upon the investor's demise, specialized LIC plans like <strong>LIC's Jeevan Lakshya</strong> feature a built-in safety mechanism:
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                Unlike purely market-linked investments (such as stocks or mutual fund SIPs) that stop immediately if contributions cease upon the investor's demise, specialized LIC plans like <strong className="text-white">LIC's Jeevan Lakshya</strong> feature a built-in safety mechanism:
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
-                  <span className="font-bold text-blue-900 block">Premium Waiver</span>
-                  <p className="text-slate-600">All remaining future premium dues are fully waived by LIC.</p>
+                <div className="p-4 rounded-xl bg-[#050e20]/90 border border-white/10 space-y-1">
+                  <span className="font-bold text-gold-300 block">Premium Waiver</span>
+                  <p className="text-slate-300">All remaining future premium dues are fully waived by LIC.</p>
                 </div>
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
-                  <span className="font-bold text-blue-900 block">Annual Income</span>
-                  <p className="text-slate-600">10% of Basic Sum Assured is paid each year for school tuition.</p>
+                <div className="p-4 rounded-xl bg-[#050e20]/90 border border-white/10 space-y-1">
+                  <span className="font-bold text-gold-300 block">Annual Income</span>
+                  <p className="text-slate-300">10% of Basic Sum Assured is paid each year for school tuition.</p>
                 </div>
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1">
-                  <span className="font-bold text-blue-900 block">100% Maturity</span>
-                  <p className="text-slate-600">Full maturity corpus + bonuses are paid on the scheduled date.</p>
+                <div className="p-4 rounded-xl bg-[#050e20]/90 border border-white/10 space-y-1">
+                  <span className="font-bold text-gold-300 block">100% Maturity</span>
+                  <p className="text-slate-300">Full maturity corpus + bonuses are paid on the scheduled date.</p>
                 </div>
               </div>
             </div>
 
             {/* Section 3: Liabilities */}
-            <div id="liabilities" className="space-y-4 pt-6 border-t border-slate-200">
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
+            <div id="liabilities" className="space-y-4 pt-6 border-t border-white/10">
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white">
                 3. Insulation from Unforgiving Debt Obligations
               </h2>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
                 When a family takes a ₹50 Lakh or ₹1 Crore home loan, the financial obligation spans 15 to 20 years. In the unfortunate event of the borrower's passing, the lending bank will still expect monthly EMI payments. Without dedicated life cover, surviving family members face foreclosure notices or forced distress sales. An adequate life cover allows the family to repay the lender immediately and own the property free and clear.
               </p>
             </div>
@@ -124,7 +124,7 @@ export default function WhyLifeInsurancePage() {
         <EmotionalStorySection />
 
         {/* CTA to Calculator */}
-        <section className="py-16 bg-gradient-to-r from-blue-900 to-slate-900 text-white text-center">
+        <section className="py-16 bg-gradient-to-r from-[#030816] via-[#071329] to-[#030816] text-white text-center border-t border-white/10">
           <div className="max-w-3xl mx-auto px-4 space-y-4">
             <h2 className="font-serif text-2xl sm:text-3xl font-bold">
               Ready to Discover Your Exact Protection Number?

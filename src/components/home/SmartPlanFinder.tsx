@@ -8,11 +8,9 @@ import {
   Sparkles, 
   CheckCircle2, 
   ArrowRight, 
-  ShieldCheck, 
   RotateCcw, 
   UserCheck, 
   MessageSquare,
-  HelpCircle,
   Award
 } from "lucide-react";
 
@@ -59,29 +57,24 @@ export const SmartPlanFinder: React.FC<SmartPlanFinderProps> = ({
           rationale = "Combines risk protection with sovereign-backed capital preservation and bonus participation.";
         } else if (p.category === "whole-life") {
           score += 35;
-          rationale = "Offers whole-life asset protection with predictable cash flow generation.";
+          rationale = "Blends lifelong risk cover with milestone survival benefits.";
         }
       }
 
       // Match Horizon
-      if (horizon === "limited") {
-        if (p.id === "jeevan-labh" || p.id === "jeevan-utsav" || p.id === "jeevan-lakshya") {
+      const featStr = p.keyFeatures.join(" ").toLowerCase();
+      if (horizon === "limited" && (featStr.includes("limited") || p.category === "savings")) score += 20;
+      if (horizon === "regular" && (featStr.includes("regular") || p.category === "protection")) score += 15;
+      if (horizon === "single" && (featStr.includes("single") || p.category === "retirement")) score += 25;
+
+      // Match Style
+      if (style === "guaranteed") {
+        if (p.name.includes("Yuva") || p.name.includes("Digi") || p.name.includes("Utsav") || p.name.includes("Amritbaal")) {
           score += 20;
         }
-      } else if (horizon === "single") {
-        if (p.id === "saral-pension") {
-          score += 30;
-        }
-      }
-
-      // Match Return Style
-      if (style === "guaranteed") {
-        if (p.id === "jeevan-utsav" || p.id === "saral-pension") {
-          score += 25;
-        }
       } else if (style === "participating") {
-        if (p.id === "jeevan-labh" || p.id === "jeevan-anand" || p.id === "jeevan-lakshya") {
-          score += 25;
+        if (p.name.includes("Anand") || p.name.includes("Labh") || p.name.includes("Lakshya") || p.name.includes("Umang")) {
+          score += 20;
         }
       }
 
@@ -103,33 +96,36 @@ export const SmartPlanFinder: React.FC<SmartPlanFinderProps> = ({
   const recommendations = getRecommendations();
 
   return (
-    <section id="smart-plan-finder" className="py-24 bg-gradient-to-b from-[#f8fafc] via-[#f1f5f9] to-[#ffffff] border-b border-slate-200/80 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="smart-plan-finder" className="py-24 bg-[#020716] text-white border-b border-white/10 relative overflow-hidden">
+      {/* Background Ambient Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-lic-900/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-lic-50 border border-lic-200 text-lic-900 text-xs font-extrabold uppercase tracking-wider shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-gold-600" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-300 text-xs font-extrabold uppercase tracking-wider shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
             <span>Interactive Suitability Engine</span>
           </div>
           
-          <h2 className="font-serif text-3.5xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.2]">
-            Find the <span className="text-lic-900">Right LIC Plan</span> for Your Life Stage
+          <h2 className="font-serif text-3.5xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.2]">
+            Find the <span className="text-gold-300">Right LIC Plan</span> for Your Life Stage
           </h2>
           
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+          <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
             No endless brochures or confusing jargon. Answer 3 simple questions to discover the most suitable official LIC solutions for your household.
           </p>
         </div>
 
         {/* Wizard Form & Results Container */}
-        <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200/90 shadow-2xl overflow-hidden p-7 sm:p-12 relative">
+        <div className="max-w-4xl mx-auto bg-[#050e20]/90 rounded-3xl border border-white/10 shadow-glass-dark overflow-hidden p-7 sm:p-12 relative">
           {!hasCalculated ? (
             <div className="space-y-9">
               {/* Question 1: Financial Goal */}
               <div className="space-y-4">
-                <label className="block text-base font-extrabold text-slate-900 flex items-center gap-2.5">
-                  <span className="w-7 h-7 rounded-full bg-lic-900 text-gold-300 text-xs flex items-center justify-center font-bold">1</span>
+                <label className="block text-base font-extrabold text-white flex items-center gap-2.5">
+                  <span className="w-7 h-7 rounded-full bg-white/10 text-gold-300 border border-gold-500/30 text-xs flex items-center justify-center font-bold">1</span>
                   <span>What is your primary financial protection goal?</span>
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -145,15 +141,15 @@ export const SmartPlanFinder: React.FC<SmartPlanFinderProps> = ({
                       onClick={() => setGoal(item.id)}
                       className={`text-left p-5 rounded-2xl border-2 transition-all ${
                         goal === item.id
-                          ? "border-lic-900 bg-lic-50/70 shadow-sm ring-1 ring-lic-900 text-lic-950 font-bold"
-                          : "border-slate-200 hover:border-gold-400 text-slate-700 bg-white"
+                          ? "border-gold-400 bg-gold-500/15 shadow-gold-glow ring-1 ring-gold-400 text-white font-bold"
+                          : "border-white/10 hover:border-gold-500/40 text-slate-300 bg-white/[0.03]"
                       }`}
                     >
                       <div className="flex items-center justify-between mb-1.5">
-                        <span className="text-sm font-extrabold block text-slate-900">{item.title}</span>
-                        {goal === item.id && <span className="w-2 h-2 rounded-full bg-lic-900 shrink-0"></span>}
+                        <span className={`text-sm font-extrabold block ${goal === item.id ? "text-gold-300" : "text-white"}`}>{item.title}</span>
+                        {goal === item.id && <span className="w-2 h-2 rounded-full bg-gold-400 shrink-0"></span>}
                       </div>
-                      <span className="text-xs text-slate-500 leading-relaxed block font-normal">{item.desc}</span>
+                      <span className="text-xs text-slate-400 leading-relaxed block font-normal">{item.desc}</span>
                     </button>
                   ))}
                 </div>
@@ -161,8 +157,8 @@ export const SmartPlanFinder: React.FC<SmartPlanFinderProps> = ({
 
               {/* Question 2: Premium Term Horizon */}
               <div className="space-y-4">
-                <label className="block text-base font-extrabold text-slate-900 flex items-center gap-2.5">
-                  <span className="w-7 h-7 rounded-full bg-lic-900 text-gold-300 text-xs flex items-center justify-center font-bold">2</span>
+                <label className="block text-base font-extrabold text-white flex items-center gap-2.5">
+                  <span className="w-7 h-7 rounded-full bg-white/10 text-gold-300 border border-gold-500/30 text-xs flex items-center justify-center font-bold">2</span>
                   <span>What is your preferred premium payment horizon?</span>
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -177,15 +173,15 @@ export const SmartPlanFinder: React.FC<SmartPlanFinderProps> = ({
                       onClick={() => setHorizon(item.id)}
                       className={`text-left p-5 rounded-2xl border-2 transition-all ${
                         horizon === item.id
-                          ? "border-lic-900 bg-lic-50/70 shadow-sm ring-1 ring-lic-900 text-lic-950 font-bold"
-                          : "border-slate-200 hover:border-gold-400 text-slate-700 bg-white"
+                          ? "border-gold-400 bg-gold-500/15 shadow-gold-glow ring-1 ring-gold-400 text-white font-bold"
+                          : "border-white/10 hover:border-gold-500/40 text-slate-300 bg-white/[0.03]"
                       }`}
                     >
                       <div className="flex items-center justify-between mb-1.5">
-                        <span className="text-sm font-extrabold block text-slate-900">{item.title}</span>
-                        {horizon === item.id && <span className="w-2 h-2 rounded-full bg-lic-900 shrink-0"></span>}
+                        <span className={`text-sm font-extrabold block ${horizon === item.id ? "text-gold-300" : "text-white"}`}>{item.title}</span>
+                        {horizon === item.id && <span className="w-2 h-2 rounded-full bg-gold-400 shrink-0"></span>}
                       </div>
-                      <span className="text-xs text-slate-500 leading-relaxed block font-normal">{item.desc}</span>
+                      <span className="text-xs text-slate-400 leading-relaxed block font-normal">{item.desc}</span>
                     </button>
                   ))}
                 </div>
@@ -193,8 +189,8 @@ export const SmartPlanFinder: React.FC<SmartPlanFinderProps> = ({
 
               {/* Question 3: Return Structure */}
               <div className="space-y-4">
-                <label className="block text-base font-extrabold text-slate-900 flex items-center gap-2.5">
-                  <span className="w-7 h-7 rounded-full bg-lic-900 text-gold-300 text-xs flex items-center justify-center font-bold">3</span>
+                <label className="block text-base font-extrabold text-white flex items-center gap-2.5">
+                  <span className="w-7 h-7 rounded-full bg-white/10 text-gold-300 border border-gold-500/30 text-xs flex items-center justify-center font-bold">3</span>
                   <span>What return / benefit structure aligns with your philosophy?</span>
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -208,22 +204,22 @@ export const SmartPlanFinder: React.FC<SmartPlanFinderProps> = ({
                       onClick={() => setStyle(item.id)}
                       className={`text-left p-5 rounded-2xl border-2 transition-all ${
                         style === item.id
-                          ? "border-lic-900 bg-lic-50/70 shadow-sm ring-1 ring-lic-900 text-lic-950 font-bold"
-                          : "border-slate-200 hover:border-gold-400 text-slate-700 bg-white"
+                          ? "border-gold-400 bg-gold-500/15 shadow-gold-glow ring-1 ring-gold-400 text-white font-bold"
+                          : "border-white/10 hover:border-gold-500/40 text-slate-300 bg-white/[0.03]"
                       }`}
                     >
                       <div className="flex items-center justify-between mb-1.5">
-                        <span className="text-sm font-extrabold block text-slate-900">{item.title}</span>
-                        {style === item.id && <span className="w-2 h-2 rounded-full bg-lic-900 shrink-0"></span>}
+                        <span className={`text-sm font-extrabold block ${style === item.id ? "text-gold-300" : "text-white"}`}>{item.title}</span>
+                        {style === item.id && <span className="w-2 h-2 rounded-full bg-gold-400 shrink-0"></span>}
                       </div>
-                      <span className="text-xs text-slate-500 leading-relaxed block font-normal">{item.desc}</span>
+                      <span className="text-xs text-slate-400 leading-relaxed block font-normal">{item.desc}</span>
                     </button>
                   ))}
                 </div>
               </div>
 
               {/* Submit Button */}
-              <div className="pt-4 border-t border-slate-100 flex justify-end">
+              <div className="pt-6 border-t border-white/10 flex justify-end">
                 <button
                   type="button"
                   onClick={handleCalculate}
@@ -237,19 +233,19 @@ export const SmartPlanFinder: React.FC<SmartPlanFinderProps> = ({
           ) : (
             /* Results View */
             <div className="space-y-8 animate-in fade-in duration-300">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-5">
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-500/40">
                     Suitability Match Complete
                   </span>
-                  <h3 className="font-serif text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">
+                  <h3 className="font-serif text-2xl sm:text-3xl font-extrabold text-white mt-2">
                     Top Verified Matches for Your Criteria
                   </h3>
                 </div>
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="text-xs font-bold text-lic-900 hover:text-gold-700 uppercase tracking-wider inline-flex items-center gap-1.5 self-start sm:self-auto py-2 px-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition-colors"
+                  className="text-xs font-bold text-gold-300 hover:text-gold-200 uppercase tracking-wider inline-flex items-center gap-1.5 self-start sm:self-auto py-2 px-3 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-colors"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
                   <span>Adjust Preferences</span>
@@ -261,46 +257,46 @@ export const SmartPlanFinder: React.FC<SmartPlanFinderProps> = ({
                 {recommendations.map((rec, idx) => (
                   <div
                     key={rec.product.id}
-                    className="p-7 rounded-3xl border-2 border-lic-900/30 bg-gradient-to-b from-lic-50/30 to-white flex flex-col justify-between space-y-6 relative overflow-hidden shadow-card-elevated hover:shadow-card-hover transition-all"
+                    className="p-7 rounded-3xl border border-white/10 bg-[#061226] hover:border-gold-500/40 flex flex-col justify-between space-y-6 relative overflow-hidden shadow-glass-dark transition-all"
                   >
-                    <div className="absolute top-0 right-0 bg-lic-900 text-gold-300 text-[10px] font-extrabold px-3.5 py-1.5 rounded-bl-2xl uppercase tracking-wider shadow-sm">
+                    <div className="absolute top-0 right-0 bg-gold-400 text-slate-950 text-[10px] font-extrabold px-3.5 py-1.5 rounded-bl-2xl uppercase tracking-wider shadow-sm">
                       {idx === 0 ? "★ Primary Match" : "Alternative Match"}
                     </div>
 
                     <div className="space-y-3 pt-2">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-mono font-extrabold text-lic-900 bg-lic-100/80 px-2.5 py-0.5 rounded-md">
+                        <span className="text-xs font-mono font-extrabold text-gold-300 bg-white/5 border border-gold-500/30 px-2.5 py-0.5 rounded-md">
                           Table {rec.product.tableNo}
                         </span>
-                        <span className="text-[11px] font-mono text-slate-500 font-semibold">
+                        <span className="text-[11px] font-mono text-slate-400 font-semibold">
                           UIN: {rec.product.uin}
                         </span>
                       </div>
 
-                      <h4 className="font-serif text-2xl font-bold text-slate-900">
+                      <h4 className="font-serif text-2xl font-bold text-white">
                         {rec.product.name}
                       </h4>
 
-                      <p className="text-xs text-slate-600 font-medium leading-relaxed">
+                      <p className="text-xs text-slate-300 font-medium leading-relaxed">
                         {rec.product.tagline}
                       </p>
 
-                      <div className="p-4 rounded-2xl bg-white border border-slate-200/80 text-xs text-slate-700 space-y-1.5 shadow-sm">
-                        <span className="font-extrabold text-lic-950 text-[10px] uppercase tracking-wide block flex items-center gap-1">
-                          <Award className="w-3.5 h-3.5 text-gold-600" />
+                      <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 text-xs text-slate-300 space-y-1.5 shadow-sm">
+                        <span className="font-extrabold text-gold-300 text-[10px] uppercase tracking-wide block flex items-center gap-1">
+                          <Award className="w-3.5 h-3.5 text-gold-400" />
                           Why this matches your criteria:
                         </span>
-                        <p className="text-slate-600 leading-relaxed font-normal">{rec.rationale}</p>
+                        <p className="text-slate-300 leading-relaxed font-normal">{rec.rationale}</p>
                       </div>
 
                       <div className="pt-2 text-xs space-y-1.5">
-                        <span className="font-extrabold text-slate-900 text-[10px] uppercase tracking-wider block">
+                        <span className="font-extrabold text-white text-[10px] uppercase tracking-wider block">
                           Key Advantages:
                         </span>
-                        <ul className="space-y-1.5 text-xs text-slate-600 font-normal">
+                        <ul className="space-y-1.5 text-xs text-slate-300 font-normal">
                           {rec.product.keyFeatures.slice(0, 2).map((kf, i) => (
                             <li key={i} className="flex items-start gap-2">
-                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                               <span>{kf}</span>
                             </li>
                           ))}
@@ -308,7 +304,7 @@ export const SmartPlanFinder: React.FC<SmartPlanFinderProps> = ({
                       </div>
                     </div>
 
-                    <div className="pt-5 border-t border-slate-200/80 flex flex-col gap-2.5">
+                    <div className="pt-5 border-t border-white/10 flex flex-col gap-2.5">
                       <button
                         type="button"
                         onClick={() => onOpenConsultationWithPlan(`${rec.product.name} (Table ${rec.product.tableNo})`)}
@@ -322,9 +318,9 @@ export const SmartPlanFinder: React.FC<SmartPlanFinderProps> = ({
                         href={buildPlanWhatsAppLink(rec.product.name, rec.product.tableNo)}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full py-2.5 px-3 rounded-xl text-xs font-bold text-emerald-800 bg-white hover:bg-emerald-50 border border-emerald-300 transition-colors flex items-center justify-center gap-2 shadow-sm"
+                        className="w-full py-2.5 px-3 rounded-xl text-xs font-bold text-emerald-300 bg-emerald-950/60 hover:bg-emerald-900/60 border border-emerald-500/40 transition-colors flex items-center justify-center gap-2 shadow-sm"
                       >
-                        <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
+                        <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
                         <span>Discuss with Kartik on WhatsApp</span>
                       </a>
                     </div>
@@ -333,7 +329,7 @@ export const SmartPlanFinder: React.FC<SmartPlanFinderProps> = ({
               </div>
 
               {/* Disclaimer */}
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-500 leading-relaxed">
+              <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 text-xs text-slate-400 leading-relaxed">
                 <p>
                   <strong>Suitability Disclaimer:</strong> This algorithm generates educational approximations based on high-level goals. Official underwriting approval, premium calculations, and health classification are conducted formally through standard LIC of India proposal procedures.
                 </p>

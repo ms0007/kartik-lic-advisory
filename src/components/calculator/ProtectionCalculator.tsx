@@ -53,7 +53,7 @@ export const ProtectionCalculator: React.FC<ProtectionCalculatorProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-3xl border border-slate-200/90 shadow-2xl overflow-hidden">
+    <div className="bg-[#050e20]/95 rounded-3xl border border-white/10 shadow-2xl overflow-hidden text-white">
       {/* Top Banner & Important Regulatory Educational Notice */}
       <div className="bg-gradient-to-r from-[#030919] via-[#091b3d] to-[#040c21] text-white p-6 sm:p-10 border-b border-white/10 relative overflow-hidden">
         {/* Subtle Ambient Light */}
@@ -86,20 +86,20 @@ export const ProtectionCalculator: React.FC<ProtectionCalculatorProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6 sm:p-10">
         {/* Left Column: Interactive Inputs */}
         <div className="lg:col-span-7 space-y-7">
-          <div className="flex items-center justify-between border-b border-slate-200 pb-3">
-            <h3 className="text-sm font-extrabold uppercase tracking-wider text-slate-900 flex items-center gap-2">
-              <span className="w-6 h-6 rounded-full bg-lic-900 text-gold-300 text-xs flex items-center justify-center font-bold">1</span>
+          <div className="flex items-center justify-between border-b border-white/10 pb-3">
+            <h3 className="text-sm font-extrabold uppercase tracking-wider text-white flex items-center gap-2">
+              <span className="w-6 h-6 rounded-full bg-white/10 text-gold-300 border border-gold-500/30 text-xs flex items-center justify-center font-bold">1</span>
               <span>Your Household Financial Profile</span>
             </h3>
-            <span className="text-xs text-slate-500 font-medium">Real-Time Calculation</span>
+            <span className="text-xs text-gold-400 font-medium">Real-Time Calculation</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {/* Age */}
-            <div className="bg-slate-50/80 p-4 rounded-2xl border border-slate-200/80">
-              <div className="flex justify-between text-xs font-bold text-slate-800 mb-2">
+            <div className="bg-white/[0.04] p-4 rounded-2xl border border-white/10 hover:border-gold-500/30 transition-colors">
+              <div className="flex justify-between text-xs font-bold text-slate-200 mb-2">
                 <label htmlFor="calc-age">Current Age</label>
-                <span className="text-lic-900 font-extrabold text-sm">{inputs.age} years</span>
+                <span className="text-gold-300 font-extrabold text-sm">{inputs.age} years</span>
               </div>
               <input
                 id="calc-age"
@@ -109,19 +109,19 @@ export const ProtectionCalculator: React.FC<ProtectionCalculatorProps> = ({
                 step={1}
                 value={inputs.age}
                 onChange={(e) => handleInputChange("age", Number(e.target.value))}
-                className="w-full cursor-pointer h-2 bg-slate-200 rounded-lg"
+                className="w-full cursor-pointer h-2 bg-white/10 rounded-lg accent-gold-400"
               />
-              <div className="flex justify-between text-[11px] text-slate-500 mt-1 font-medium">
+              <div className="flex justify-between text-[11px] text-slate-400 mt-1 font-medium">
                 <span>18 yrs</span>
                 <span>60 yrs</span>
               </div>
             </div>
 
             {/* Annual Income */}
-            <div className="bg-slate-50/80 p-4 rounded-2xl border border-slate-200/80">
-              <div className="flex justify-between text-xs font-bold text-slate-800 mb-2">
+            <div className="bg-white/[0.04] p-4 rounded-2xl border border-white/10 hover:border-gold-500/30 transition-colors">
+              <div className="flex justify-between text-xs font-bold text-slate-200 mb-2">
                 <label htmlFor="calc-income">Gross Annual Income</label>
-                <span className="text-lic-900 font-extrabold text-sm">{formatCurrencyINR(inputs.annualIncome)}</span>
+                <span className="text-gold-300 font-extrabold text-sm">{formatCurrencyINR(inputs.annualIncome)}</span>
               </div>
               <input
                 id="calc-income"
@@ -131,19 +131,19 @@ export const ProtectionCalculator: React.FC<ProtectionCalculatorProps> = ({
                 step={100000}
                 value={inputs.annualIncome}
                 onChange={(e) => handleInputChange("annualIncome", Number(e.target.value))}
-                className="w-full cursor-pointer h-2 bg-slate-200 rounded-lg"
+                className="w-full cursor-pointer h-2 bg-white/10 rounded-lg accent-gold-400"
               />
-              <div className="flex justify-between text-[11px] text-slate-500 mt-1 font-medium">
+              <div className="flex justify-between text-[11px] text-slate-400 mt-1 font-medium">
                 <span>₹3L</span>
                 <span>₹1 Cr</span>
               </div>
             </div>
 
             {/* Monthly Living Expenses */}
-            <div className="bg-slate-50/80 p-4 rounded-2xl border border-slate-200/80">
-              <div className="flex justify-between text-xs font-bold text-slate-800 mb-2">
+            <div className="bg-white/[0.04] p-4 rounded-2xl border border-white/10 hover:border-gold-500/30 transition-colors">
+              <div className="flex justify-between text-xs font-bold text-slate-200 mb-2">
                 <label htmlFor="calc-expenses">Monthly Living Expenses</label>
-                <span className="text-lic-900 font-extrabold text-sm">{formatCurrencyINR(inputs.monthlyExpenses)}/mo</span>
+                <span className="text-gold-300 font-extrabold text-sm">{formatCurrencyINR(inputs.monthlyExpenses)}/mo</span>
               </div>
               <input
                 id="calc-expenses"
@@ -153,19 +153,19 @@ export const ProtectionCalculator: React.FC<ProtectionCalculatorProps> = ({
                 step={5000}
                 value={inputs.monthlyExpenses}
                 onChange={(e) => handleInputChange("monthlyExpenses", Number(e.target.value))}
-                className="w-full cursor-pointer h-2 bg-slate-200 rounded-lg"
+                className="w-full cursor-pointer h-2 bg-white/10 rounded-lg accent-gold-400"
               />
-              <div className="flex justify-between text-[11px] text-slate-500 mt-1 font-medium">
+              <div className="flex justify-between text-[11px] text-slate-400 mt-1 font-medium">
                 <span>₹15k</span>
                 <span>₹3L</span>
               </div>
             </div>
 
             {/* Outstanding Debts & Loans */}
-            <div className="bg-slate-50/80 p-4 rounded-2xl border border-slate-200/80">
-              <div className="flex justify-between text-xs font-bold text-slate-800 mb-2">
+            <div className="bg-white/[0.04] p-4 rounded-2xl border border-white/10 hover:border-gold-500/30 transition-colors">
+              <div className="flex justify-between text-xs font-bold text-slate-200 mb-2">
                 <label htmlFor="calc-loans">Debts (Home / Car / Business)</label>
-                <span className="text-rose-700 font-extrabold text-sm">{formatCurrencyINR(inputs.outstandingLoans)}</span>
+                <span className="text-rose-400 font-extrabold text-sm">{formatCurrencyINR(inputs.outstandingLoans)}</span>
               </div>
               <input
                 id="calc-loans"
@@ -175,9 +175,9 @@ export const ProtectionCalculator: React.FC<ProtectionCalculatorProps> = ({
                 step={200000}
                 value={inputs.outstandingLoans}
                 onChange={(e) => handleInputChange("outstandingLoans", Number(e.target.value))}
-                className="w-full cursor-pointer h-2 bg-slate-200 rounded-lg"
+                className="w-full cursor-pointer h-2 bg-white/10 rounded-lg accent-gold-400"
               />
-              <div className="flex justify-between text-[11px] text-slate-500 mt-1 font-medium">
+              <div className="flex justify-between text-[11px] text-slate-400 mt-1 font-medium">
                 <span>₹0</span>
                 <span>₹2 Cr</span>
               </div>
@@ -186,34 +186,34 @@ export const ProtectionCalculator: React.FC<ProtectionCalculatorProps> = ({
 
           {/* Children & Education Section */}
           <div className="pt-2">
-            <h4 className="text-xs font-extrabold uppercase tracking-wider text-slate-900 mb-4 flex items-center gap-2">
-              <span className="w-6 h-6 rounded-full bg-lic-900 text-gold-300 text-xs flex items-center justify-center font-bold">2</span>
+            <h4 className="text-xs font-extrabold uppercase tracking-wider text-white mb-4 flex items-center gap-2">
+              <span className="w-6 h-6 rounded-full bg-white/10 text-gold-300 border border-gold-500/30 text-xs flex items-center justify-center font-bold">2</span>
               <span>Dependents & Future Milestones</span>
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <div className="bg-slate-50/80 p-4 rounded-2xl border border-slate-200/80">
-                <label htmlFor="calc-children" className="block text-xs font-bold text-slate-800 mb-2">
+              <div className="bg-white/[0.04] p-4 rounded-2xl border border-white/10 hover:border-gold-500/30 transition-colors">
+                <label htmlFor="calc-children" className="block text-xs font-bold text-slate-200 mb-2">
                   Number of Minor Children
                 </label>
                 <select
                   id="calc-children"
                   value={inputs.childrenCount}
                   onChange={(e) => handleInputChange("childrenCount", Number(e.target.value))}
-                  className="w-full px-4 py-2.5 text-sm font-semibold rounded-xl border border-slate-300 bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-lic-900 shadow-sm"
+                  className="w-full px-4 py-2.5 text-sm font-semibold rounded-xl border border-white/20 bg-[#081836] text-white focus:outline-none focus:ring-2 focus:ring-gold-400 shadow-sm"
                 >
-                  <option value={0}>0 (No minor children)</option>
-                  <option value={1}>1 Child</option>
-                  <option value={2}>2 Children</option>
-                  <option value={3}>3 Children</option>
-                  <option value={4}>4+ Children</option>
+                  <option value={0} className="bg-[#081836] text-white">0 (No minor children)</option>
+                  <option value={1} className="bg-[#081836] text-white">1 Child</option>
+                  <option value={2} className="bg-[#081836] text-white">2 Children</option>
+                  <option value={3} className="bg-[#081836] text-white">3 Children</option>
+                  <option value={4} className="bg-[#081836] text-white">4+ Children</option>
                 </select>
               </div>
 
               {inputs.childrenCount > 0 && (
-                <div className="bg-slate-50/80 p-4 rounded-2xl border border-slate-200/80">
-                  <div className="flex justify-between text-xs font-bold text-slate-800 mb-2">
+                <div className="bg-white/[0.04] p-4 rounded-2xl border border-white/10 hover:border-gold-500/30 transition-colors">
+                  <div className="flex justify-between text-xs font-bold text-slate-200 mb-2">
                     <label htmlFor="calc-child-edu">Higher Education Target / Child</label>
-                    <span className="text-lic-900 font-extrabold text-sm">{formatCurrencyINR(inputs.educationCostPerChild)}</span>
+                    <span className="text-gold-300 font-extrabold text-sm">{formatCurrencyINR(inputs.educationCostPerChild)}</span>
                   </div>
                   <input
                     id="calc-child-edu"
@@ -223,9 +223,9 @@ export const ProtectionCalculator: React.FC<ProtectionCalculatorProps> = ({
                     step={250000}
                     value={inputs.educationCostPerChild}
                     onChange={(e) => handleInputChange("educationCostPerChild", Number(e.target.value))}
-                    className="w-full cursor-pointer h-2 bg-slate-200 rounded-lg"
+                    className="w-full cursor-pointer h-2 bg-white/10 rounded-lg accent-gold-400"
                   />
-                  <div className="flex justify-between text-[11px] text-slate-500 mt-1 font-medium">
+                  <div className="flex justify-between text-[11px] text-slate-400 mt-1 font-medium">
                     <span>₹5L</span>
                     <span>₹1 Cr</span>
                   </div>
@@ -235,21 +235,21 @@ export const ProtectionCalculator: React.FC<ProtectionCalculatorProps> = ({
           </div>
 
           {/* Existing Assets Section Toggle */}
-          <div className="pt-2 border-t border-slate-100">
+          <div className="pt-2 border-t border-white/10">
             <button
               type="button"
               onClick={() => setShowAdvanced(!showAdvanced)}
-              className="text-xs font-bold text-lic-900 hover:text-gold-700 flex items-center gap-1.5 transition-colors uppercase tracking-wider"
+              className="text-xs font-bold text-gold-300 hover:text-gold-200 flex items-center gap-1.5 transition-colors uppercase tracking-wider"
             >
               <span>{showAdvanced ? "— Hide existing assets & savings" : "+ Account for Existing Life Insurance & Liquid Savings"}</span>
             </button>
 
             {showAdvanced && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-4 p-5 rounded-2xl bg-slate-50 border border-slate-200">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-4 p-5 rounded-2xl bg-white/[0.03] border border-white/10">
                 <div>
-                  <div className="flex justify-between text-xs font-bold text-slate-800 mb-1.5">
+                  <div className="flex justify-between text-xs font-bold text-slate-200 mb-1.5">
                     <label htmlFor="calc-existing-cover">Existing Life Cover</label>
-                    <span className="text-emerald-700 font-extrabold">{formatCurrencyINR(inputs.existingLifeCover)}</span>
+                    <span className="text-emerald-400 font-extrabold">{formatCurrencyINR(inputs.existingLifeCover)}</span>
                   </div>
                   <input
                     id="calc-existing-cover"
@@ -259,14 +259,14 @@ export const ProtectionCalculator: React.FC<ProtectionCalculatorProps> = ({
                     step={500000}
                     value={inputs.existingLifeCover}
                     onChange={(e) => handleInputChange("existingLifeCover", Number(e.target.value))}
-                    className="w-full cursor-pointer h-2 bg-slate-200 rounded-lg"
+                    className="w-full cursor-pointer h-2 bg-white/10 rounded-lg accent-gold-400"
                   />
                 </div>
 
                 <div>
-                  <div className="flex justify-between text-xs font-bold text-slate-800 mb-1.5">
+                  <div className="flex justify-between text-xs font-bold text-slate-200 mb-1.5">
                     <label htmlFor="calc-existing-savings">Liquid Savings / Deposits</label>
-                    <span className="text-emerald-700 font-extrabold">{formatCurrencyINR(inputs.existingLiquidSavings)}</span>
+                    <span className="text-emerald-400 font-extrabold">{formatCurrencyINR(inputs.existingLiquidSavings)}</span>
                   </div>
                   <input
                     id="calc-existing-savings"
@@ -276,13 +276,14 @@ export const ProtectionCalculator: React.FC<ProtectionCalculatorProps> = ({
                     step={200000}
                     value={inputs.existingLiquidSavings}
                     onChange={(e) => handleInputChange("existingLiquidSavings", Number(e.target.value))}
-                    className="w-full cursor-pointer h-2 bg-slate-200 rounded-lg"
+                    className="w-full cursor-pointer h-2 bg-white/10 rounded-lg accent-gold-400"
                   />
                 </div>
               </div>
             )}
           </div>
         </div>
+
 
         {/* Right Column: Dynamic Results Dashboard (Luxury High-Contrast Dossier) */}
         <div className="lg:col-span-5 flex flex-col justify-between">

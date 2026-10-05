@@ -118,14 +118,14 @@ export default function ClaimsGuidePage() {
         </section>
 
         {/* 4 Steps Section */}
-        <section className="py-16 bg-slate-50">
+        <section className="py-16 bg-[#030816] text-white border-t border-white/10">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 space-y-12">
             
             <div className="text-center max-w-2xl mx-auto space-y-2">
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white">
                 The 4-Step Claim Settlement Lifecycle
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600">
+              <p className="text-xs sm:text-sm text-slate-400">
                 How an LIC death claim progresses from notification to final bank disbursement.
               </p>
             </div>
@@ -149,26 +149,26 @@ export default function ClaimsGuidePage() {
             </div>
 
             {/* Document Checklist Section */}
-            <div className="pt-8 border-t border-slate-200 space-y-6">
+            <div className="pt-8 border-t border-white/10 space-y-6">
               <div className="space-y-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-blue-900 bg-blue-50 px-3 py-1 rounded-full">
+                <span className="text-xs font-bold uppercase tracking-wider text-gold-300 bg-gold-400/10 border border-gold-400/30 px-3 py-1 rounded-full">
                   Checklist
                 </span>
-                <h3 className="font-serif text-2xl font-bold text-slate-900">
+                <h3 className="font-serif text-2xl font-bold text-white">
                   Essential Documents Required for Claim Submission
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-600">
+                <p className="text-xs sm:text-sm text-slate-400">
                   Keep these documents organized in a secure family folder to ensure rapid processing without delays.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {requiredDocuments.map((doc, idx) => (
-                  <div key={idx} className="p-4 rounded-xl border border-slate-200 bg-white space-y-1 flex items-start gap-3">
-                    <FileCheck2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                  <div key={idx} className="p-4 rounded-xl border border-white/10 bg-[#050e20]/90 space-y-1 flex items-start gap-3">
+                    <FileCheck2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-bold text-xs text-slate-900 block">{doc.doc}</span>
-                      <p className="text-[11px] text-slate-500 leading-snug">{doc.notes}</p>
+                      <span className="font-bold text-xs text-white block">{doc.doc}</span>
+                      <p className="text-[11px] text-slate-300 leading-snug">{doc.notes}</p>
                     </div>
                   </div>
                 ))}
@@ -176,15 +176,15 @@ export default function ClaimsGuidePage() {
             </div>
 
             {/* Section 45 & Incontestability */}
-            <div className="p-6 rounded-2xl bg-blue-50 border border-blue-200 text-xs sm:text-sm text-blue-950 space-y-3">
-              <div className="flex items-center gap-2 font-bold text-blue-900 text-base">
-                <ShieldCheck className="w-5 h-5 text-blue-800" />
+            <div className="p-6 rounded-2xl bg-[#061226]/90 border border-gold-500/30 text-xs sm:text-sm text-slate-300 space-y-3 shadow-lg">
+              <div className="flex items-center gap-2 font-bold text-gold-300 text-base">
+                <ShieldCheck className="w-5 h-5 text-gold-400" />
                 <span>Section 45 Incontestability Protection</span>
               </div>
               <p className="leading-relaxed">
-                Under <strong>Section 45 of the Insurance Act 1938</strong> (amended 2015), no policy of life insurance can be called in question by the insurer on any ground whatsoever after the expiry of <strong>3 years</strong> from the date of issuance or revival. This provides sovereign-backed peace of mind for long-term policyholders.
+                Under <strong className="text-white">Section 45 of the Insurance Act 1938</strong> (amended 2015), no policy of life insurance can be called in question by the insurer on any ground whatsoever after the expiry of <strong className="text-gold-300">3 years</strong> from the date of issuance or revival. This provides sovereign-backed peace of mind for long-term policyholders.
               </p>
-              <p className="leading-relaxed text-xs text-blue-900">
+              <p className="leading-relaxed text-xs text-slate-400">
                 During the initial 3 years, full truthfulness regarding medical health and smoking habits in the proposal form ensures that claims are honored smoothly without disputes.
               </p>
             </div>

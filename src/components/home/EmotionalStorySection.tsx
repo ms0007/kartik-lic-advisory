@@ -6,8 +6,7 @@ import {
   Receipt, 
   Activity, 
   TrendingDown, 
-  ShieldCheck,
-  CheckCircle2,
+  ShieldCheck, 
   Lock
 } from "lucide-react";
 
@@ -52,44 +51,47 @@ export const EmotionalStorySection: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-[#f8fafc] via-[#f1f5f9] to-[#ffffff] border-b border-slate-200/80 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-[#030919] text-white border-b border-white/10 relative overflow-hidden">
+      {/* Background Ambient Glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-lic-900/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-800 text-xs font-extrabold tracking-wider uppercase shadow-sm">
-            <AlertTriangle className="w-3.5 h-3.5 text-rose-600" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs font-extrabold tracking-wider uppercase shadow-sm">
+            <AlertTriangle className="w-3.5 h-3.5 text-rose-400" />
             <span>The Reality of Life's Unpredictability</span>
           </div>
           
-          <h2 className="font-serif text-3.5xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.2]">
-            One Unexpected Event Can <span className="text-rose-700">Change Everything.</span>
+          <h2 className="font-serif text-3.5xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.2]">
+            One Unexpected Event Can <span className="text-rose-400">Change Everything.</span>
           </h2>
           
-          <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+          <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
             When tragedy strikes an earning member, the tragedy is never only emotional. The economic foundation sustaining everyday family dignity is instantly fractured.
           </p>
         </div>
 
-        {/* Six Reality Cards with Luxury Micro-Borders */}
+        {/* Six Reality Cards with Luxury Obsidian Styling */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-16">
           {financialPressures.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div 
                 key={idx}
-                className="bg-white p-7 sm:p-8 rounded-3xl border border-slate-200/90 shadow-card-elevated hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden group"
+                className="bg-[#061226]/80 p-7 sm:p-8 rounded-3xl border border-white/10 shadow-glass-dark hover:border-gold-500/40 hover:bg-[#081730] hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden group"
               >
                 {/* Top Subtle Color Accent Line */}
                 <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${item.accent}`} />
 
-                <div className="w-13 h-13 w-12 h-12 rounded-2xl bg-[#0b2046] text-gold-400 flex items-center justify-center mb-6 shadow-md group-hover:scale-105 group-hover:bg-[#071329] transition-all">
+                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 text-gold-400 flex items-center justify-center mb-6 shadow-md group-hover:scale-105 group-hover:border-gold-500/40 transition-all">
                   <Icon className="w-6 h-6 text-gold-400" />
                 </div>
-                <h3 className="text-lg font-extrabold text-slate-900 mb-2.5 tracking-tight group-hover:text-lic-900 transition-colors">
+                <h3 className="text-lg font-extrabold text-white mb-2.5 tracking-tight group-hover:text-gold-200 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-sm text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm text-slate-300 leading-relaxed font-normal">
                   {item.desc}
                 </p>
               </div>
@@ -105,7 +107,7 @@ export const EmotionalStorySection: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center gap-7 relative z-10">
             <div className="relative">
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-gold-400 to-amber-300 opacity-40 blur-sm" />
-              <div className="relative w-18 h-18 w-16 h-16 rounded-2xl bg-gradient-to-tr from-gold-500 to-amber-300 text-slate-950 flex items-center justify-center shrink-0 shadow-gold-glow">
+              <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-tr from-gold-500 to-amber-300 text-slate-950 flex items-center justify-center shrink-0 shadow-gold-glow">
                 <ShieldCheck className="w-10 h-10 text-slate-950" />
               </div>
             </div>

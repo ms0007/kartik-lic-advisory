@@ -68,59 +68,59 @@ export default function AboutPage() {
         <AboutKartikSection onOpenConsultation={() => setModalOpen(true)} />
 
         {/* Core Principles & Transparency Pledge */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-[#030816] text-white border-t border-white/10">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 space-y-8">
             <div className="text-center space-y-2">
-              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white">
                 Our Advisory & Ethical Commitments
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600">
+              <p className="text-xs sm:text-sm text-slate-400">
                 How we conduct our consultation practice with policyholders and families across India.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs text-slate-700">
-              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 text-center">
-                <div className="w-10 h-10 rounded-full bg-blue-100 text-blue-900 flex items-center justify-center mx-auto mb-2">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs text-slate-300">
+              <div className="p-6 rounded-2xl bg-[#050e20]/90 border border-white/10 space-y-2 text-center shadow-lg">
+                <div className="w-10 h-10 rounded-full bg-gold-400/10 border border-gold-400/30 text-gold-400 flex items-center justify-center mx-auto mb-2">
                   <HeartHandshake className="w-5 h-5" />
                 </div>
-                <h3 className="font-bold text-slate-900 text-sm">1. Fact-First Transparency</h3>
-                <p className="text-slate-600">
+                <h3 className="font-bold text-white text-sm">1. Fact-First Transparency</h3>
+                <p className="text-slate-300 leading-relaxed">
                   Every policy condition, exclusion, waiting period, and premium term is presented honestly. We never exaggerate bonuses or promise speculative financial returns.
                 </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 text-center">
-                <div className="w-10 h-10 rounded-full bg-emerald-100 text-emerald-900 flex items-center justify-center mx-auto mb-2">
+              <div className="p-6 rounded-2xl bg-[#050e20]/90 border border-white/10 space-y-2 text-center shadow-lg">
+                <div className="w-10 h-10 rounded-full bg-emerald-400/10 border border-emerald-400/30 text-emerald-400 flex items-center justify-center mx-auto mb-2">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
-                <h3 className="font-bold text-slate-900 text-sm">2. Objective Sizing</h3>
-                <p className="text-slate-600">
+                <h3 className="font-bold text-white text-sm">2. Objective Sizing</h3>
+                <p className="text-slate-300 leading-relaxed">
                   We use mathematical Human Life Value models rather than arbitrary recommendations, ensuring your family is neither dangerously underinsured nor overburdened.
                 </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 text-center">
-                <div className="w-10 h-10 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center mx-auto mb-2">
+              <div className="p-6 rounded-2xl bg-[#050e20]/90 border border-white/10 space-y-2 text-center shadow-lg">
+                <div className="w-10 h-10 rounded-full bg-blue-400/10 border border-blue-400/30 text-blue-400 flex items-center justify-center mx-auto mb-2">
                   <Lock className="w-5 h-5" />
                 </div>
-                <h3 className="font-bold text-slate-900 text-sm">3. Zero High-Pressure Tactics</h3>
-                <p className="text-slate-600">
+                <h3 className="font-bold text-white text-sm">3. Zero High-Pressure Tactics</h3>
+                <p className="text-slate-300 leading-relaxed">
                   We reject aggressive telemarketing and fake deadlines. Insurance is a multi-decade family commitment that deserves calm, thoughtful consideration.
                 </p>
               </div>
             </div>
 
             {/* Official Legal & Institutional Boundaries */}
-            <div className="p-5 rounded-2xl bg-slate-100 border border-slate-300/80 text-xs text-slate-600 space-y-2">
-              <h4 className="font-bold text-slate-900 uppercase tracking-wide">
+            <div className="p-5 rounded-2xl bg-[#061226]/90 border border-gold-500/30 text-xs text-slate-300 space-y-2 shadow-lg">
+              <h4 className="font-bold text-gold-300 uppercase tracking-wide">
                 Institutional & Brand Clarification:
               </h4>
               <p>
                 This website is an independent professional advisory platform created and operated by Kartik Barmera in his capacity as a Development Officer with the Life Insurance Corporation of India (LIC of India).
               </p>
               <p>
-                It is <strong>not the official corporate website of LIC of India</strong>. For official corporate disclosures, board governance, and statutory financial reports, please visit <a href="https://licindia.in" target="_blank" rel="noopener noreferrer" className="text-blue-900 underline font-semibold">https://licindia.in</a>.
+                It is <strong className="text-white">not the official corporate website of LIC of India</strong>. For official corporate disclosures, board governance, and statutory financial reports, please visit <a href="https://licindia.in" target="_blank" rel="noopener noreferrer" className="text-gold-300 underline font-semibold hover:text-gold-200">https://licindia.in</a>.
               </p>
             </div>
           </div>

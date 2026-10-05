@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { faqsData, FAQItem } from "@/data/faqs";
 import { trackEvent } from "@/lib/analytics";
-import { ChevronDown, HelpCircle, ArrowRight, ExternalLink } from "lucide-react";
+import { ChevronDown, Sparkles, ArrowRight, ExternalLink } from "lucide-react";
 
 interface FAQSectionProps {
   limit?: number;
@@ -41,34 +41,38 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
   };
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-[#020614] text-white border-b border-white/10 relative overflow-hidden">
+      {/* Background Ambient Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-lic-900/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading */}
-        <div className="text-center space-y-3 mb-10">
-          <span className="text-xs font-bold uppercase tracking-wider text-blue-900 bg-blue-50 px-3 py-1 rounded-full">
-            Clear, Source-Backed Answers
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-            Frequently Asked Questions
+        <div className="text-center space-y-4 mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-300 text-xs font-extrabold uppercase tracking-wider shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+            <span>Clear, Source-Backed Answers</span>
+          </div>
+          <h2 className="font-serif text-3.5xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-[1.2]">
+            Frequently Asked <span className="text-gold-300">Questions</span>
           </h2>
-          <p className="text-base text-slate-600 leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
             Straightforward explanations regarding life insurance, premium terms, riders, and claims without technical obfuscation.
           </p>
         </div>
 
         {/* Category Filter Pills if enabled */}
         {showCategories && (
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+          <div className="flex flex-wrap items-center justify-center gap-2.5 mb-10">
             {categories.map((c) => (
               <button
                 key={c.id}
                 type="button"
                 onClick={() => setActiveCategory(c.id)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+                className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
                   activeCategory === c.id
-                    ? "bg-blue-900 text-white shadow-sm"
-                    : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                    ? "bg-gradient-to-r from-gold-500 to-gold-400 text-slate-950 border border-gold-400 shadow-gold-glow font-bold"
+                    : "bg-white/[0.03] text-slate-300 border border-white/10 hover:border-gold-500/40 hover:bg-white/[0.06]"
                 }`}
               >
                 {c.label}
@@ -78,54 +82,54 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
         )}
 
         {/* FAQ Accordion List */}
-        <div className="space-y-3">
+        <div className="space-y-3.5">
           {displayFaqs.map((faq) => {
             const isOpen = openFaqId === faq.id;
             return (
               <div
                 key={faq.id}
-                className="border border-slate-200 rounded-2xl overflow-hidden transition-all duration-200"
+                className="border border-white/10 rounded-2xl overflow-hidden bg-[#050e20]/90 transition-all duration-200 shadow-glass-dark"
               >
                 <button
                   type="button"
                   onClick={() => toggleFaq(faq.id, faq.question)}
-                  className="w-full text-left p-5 flex items-center justify-between gap-4 bg-white hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                  className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 bg-transparent hover:bg-white/[0.04] focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 transition-colors"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-sm sm:text-base font-bold text-slate-900 leading-snug">
+                  <span className="text-sm sm:text-base font-bold text-white leading-snug">
                     {faq.question}
                   </span>
-                  <div className={`w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180 bg-blue-900 text-white" : "text-slate-600"}`}>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180 bg-gold-400 text-slate-950 shadow-gold-glow" : "bg-white/5 text-gold-400 border border-white/10"}`}>
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="p-5 pt-0 bg-slate-50/70 border-t border-slate-100 text-xs sm:text-sm text-slate-600 space-y-3">
+                  <div className="p-5 sm:p-6 pt-0 text-xs sm:text-sm text-slate-300 space-y-4">
                     {/* Concise Direct Answer for quick comprehension & AI retrieval */}
-                    <div className="p-3.5 rounded-xl bg-blue-50/70 border border-blue-100 text-slate-800 font-medium leading-relaxed">
-                      <strong className="text-blue-950 font-bold block mb-1 text-xs uppercase tracking-wide">
+                    <div className="p-4 rounded-xl bg-white/[0.03] border border-white/10 text-slate-200 font-medium leading-relaxed">
+                      <strong className="text-gold-300 font-bold block mb-1 text-xs uppercase tracking-wide">
                         Direct Answer:
                       </strong>
                       {faq.shortAnswer}
                     </div>
 
                     {/* Detailed Context */}
-                    <p className="leading-relaxed">
+                    <p className="leading-relaxed text-slate-300 font-normal">
                       {faq.detailedAnswer}
                     </p>
 
                     {/* Institutional source citation note */}
-                    <div className="text-[11px] text-slate-500 italic pt-1 border-t border-slate-200 flex items-center justify-between">
+                    <div className="text-[11px] text-slate-400 italic pt-2 border-t border-white/10 flex items-center justify-between">
                       <span>* {faq.officialSourceNote}</span>
                       <a 
                         href="https://licindia.in" 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="text-blue-800 hover:underline inline-flex items-center gap-1 font-normal"
+                        className="text-gold-400 hover:text-gold-300 hover:underline inline-flex items-center gap-1 font-normal transition-colors"
                       >
                         <span>Official LIC source</span>
-                        <ExternalLink className="w-3 h-3" />
+                        <ExternalLink className="w-3 h-3 text-gold-400" />
                       </a>
                     </div>
                   </div>
@@ -137,13 +141,13 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
 
         {/* Link to Full FAQ Hub if limited */}
         {limit && (
-          <div className="text-center mt-10">
+          <div className="text-center mt-12">
             <Link
               href="/faq"
-              className="inline-flex items-center gap-2 px-5 py-3 text-xs font-bold uppercase tracking-wider text-blue-900 bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-xl transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-slate-200 bg-white/5 hover:bg-white/10 border border-white/15 hover:border-gold-400/40 rounded-xl transition-all shadow-sm"
             >
               <span>Explore All 20+ Questions in Knowledge Hub</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 text-gold-400" />
             </Link>
           </div>
         )}

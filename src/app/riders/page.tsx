@@ -55,12 +55,12 @@ export default function RidersPage() {
 
         {/* Important Regulatory Disclaimer */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 mt-8">
-          <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-xs text-amber-900 space-y-1.5">
-            <div className="flex items-center gap-2 font-bold uppercase tracking-wider text-amber-800">
-              <AlertTriangle className="w-4 h-4 text-amber-600" />
+          <div className="p-4 rounded-2xl bg-[#061226]/90 border border-gold-500/30 text-xs text-gold-200 space-y-1.5 shadow-lg">
+            <div className="flex items-center gap-2 font-bold uppercase tracking-wider text-gold-400">
+              <AlertTriangle className="w-4 h-4 text-gold-400" />
               <span>Mandatory Regulatory Notice:</span>
             </div>
-            <p className="leading-relaxed">
+            <p className="leading-relaxed text-slate-300">
               Riders are optional/additional benefits available upon payment of additional premium. They are NOT automatically included in every policy. Attachment is strictly subject to base plan eligibility, maximum sum assured caps, age boundaries, and underwriting approval by LIC of India.
             </p>
           </div>
@@ -75,15 +75,15 @@ export default function RidersPage() {
         />
 
         {/* Deep Dive: Common Rider Questions */}
-        <section className="py-16 bg-white border-t border-slate-200">
+        <section className="py-16 bg-[#030816] text-white border-t border-white/10">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 space-y-8">
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 text-center">
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white text-center">
               Frequently Asked Questions About LIC Riders
             </h2>
 
-            <div className="space-y-4 text-xs sm:text-sm text-slate-700">
-              <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-                <h3 className="font-bold text-slate-900 text-base">
+            <div className="space-y-4 text-xs sm:text-sm text-slate-300">
+              <div className="p-5 rounded-2xl bg-[#050e20]/90 border border-white/10 space-y-2">
+                <h3 className="font-bold text-white text-base">
                   Can I attach a rider after the policy has already commenced?
                 </h3>
                 <p className="leading-relaxed">
@@ -91,17 +91,17 @@ export default function RidersPage() {
                 </p>
               </div>
 
-              <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-                <h3 className="font-bold text-slate-900 text-base">
+              <div className="p-5 rounded-2xl bg-[#050e20]/90 border border-white/10 space-y-2">
+                <h3 className="font-bold text-white text-base">
                   What is the difference between Accident Benefit and Accidental Death & Disability?
                 </h3>
                 <p className="leading-relaxed">
-                  The standalone <strong>Accident Benefit Rider (UIN: 512B203V03)</strong> only pays out upon accidental death. In contrast, <strong>LIC's Accidental Death and Disability Benefit Rider (UIN: 512B209V02)</strong> pays for accidental death AND provides a 10-year monthly income replacement with premium waiver if the policyholder suffers total permanent disability from an accident.
+                  The standalone <strong className="text-gold-300">Accident Benefit Rider (UIN: 512B203V03)</strong> only pays out upon accidental death. In contrast, <strong className="text-gold-300">LIC's Accidental Death and Disability Benefit Rider (UIN: 512B209V02)</strong> pays for accidental death AND provides a 10-year monthly income replacement with premium waiver if the policyholder suffers total permanent disability from an accident.
                 </p>
               </div>
 
-              <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-                <h3 className="font-bold text-slate-900 text-base">
+              <div className="p-5 rounded-2xl bg-[#050e20]/90 border border-white/10 space-y-2">
+                <h3 className="font-bold text-white text-base">
                   Why is the Premium Waiver Benefit (PWB) crucial for child policies?
                 </h3>
                 <p className="leading-relaxed">
@@ -117,7 +117,7 @@ export default function RidersPage() {
                   setModalInterest("Rider Suitability Assessment");
                   setModalOpen(true);
                 }}
-                className="py-3 px-6 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-950 bg-amber-400 hover:bg-amber-300 shadow-md transition-all inline-flex items-center gap-2"
+                className="py-3 px-6 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-950 bg-gradient-to-r from-gold-500 to-gold-400 hover:from-gold-400 hover:to-gold-300 shadow-gold-glow transition-all inline-flex items-center gap-2"
               >
                 <span>Request a Personal Rider Suitability Review</span>
               </button>
