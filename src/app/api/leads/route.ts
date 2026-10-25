@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { timingSafeEqual } from "node:crypto";
 import fs from "fs";
 import path from "path";
 
@@ -143,13 +144,27 @@ export async function POST(req: NextRequest) {
   }
 }
 
-// Authenticated Lead Inspection / CRM Webhook Retrieval
+// Authenticated Lead Inspection / CRM Webhook Retrieval.
+// Require a server-configured secret and an Authorization header; never place
+// a bearer token in the URL, where it may be captured in logs or browser history.
 export async function GET(req: NextRequest) {
-  const { searchParams } = new URL(req.url);
-  const token = searchParams.get("token");
-  const adminSecret = process.env.ADMIN_LEAD_SECRET || "kartik_lic_admin_2026";
+  const authorization = req.headers.get("authorization") ?? "";
+  const token = authorization.startsWith("Bearer ") ? authorization.slice(7).trim() : "";
+  const adminSecret = process.env.ADMIN_LEAD_SECRET;
 
-  if (!token || token !== adminSecret) {
+  if (!adminSecret) {
+    console.error("[Lead API configuration error] ADMIN_LEAD_SECRET is not configured.");
+    return NextResponse.json({ error: "Lead inspection is not configured." }, { status: 503 });
+  }
+
+  const supplied = Buffer.from(token, "utf8");
+  const expected = Buffer.from(adminSecret, "utf8");
+  const authorized =
+    supplied.length > 0 &&
+    supplied.length === expected.length &&
+    timingSafeEqual(supplied, expected);
+
+  if (!authorized) {
     return NextResponse.json({ error: "Unauthorized access" }, { status: 401 });
   }
 
